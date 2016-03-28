@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/attendee_list_item_attendee_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Attendee"
+        android:layout_gravity="center_horizontal"
+        android:textAppearance="?android:attr/textAppearanceLarge"/>
+
+    <TextView
+        android:id="@+id/attendee_list_item_attendee_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="id"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/attendee_list_item_attendee_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="name"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/attendee_list_item_attendee_gps"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="gps"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/attendee_list_item_attendee_activity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="activity"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/attendee_list_item_attendee_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="status"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+</LinearLayout>
