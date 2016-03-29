@@ -15,16 +15,12 @@
             android:label="@string/title_activity_act01a_standup_view">
         </activity>
         <activity
-            android:name=".Activity04Checkin.AttendeeListActivity"
+            android:name=".AttendeeListActivity"
             android:label="@string/title_activity_act04__checkin_view">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity
-            android:name=".Activity04Checkin.AttendeeActivity"
-            android:label="@string/title_activity_act04__checkin_view">
         </activity>
     </application>
 

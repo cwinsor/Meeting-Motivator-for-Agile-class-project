@@ -1,5 +1,6 @@
-package edu.wpi.cs528projectfinal.Activity04Checkin;
+package edu.wpi.cs528projectfinal;
 
+import java.util.Date;
 import java.util.UUID;
 
 
@@ -9,54 +10,57 @@ import java.util.UUID;
  */
 public class Attendee {
 
-    private UUID id;
+    private UUID mId;
     private String name;
-    private Integer gps;
+    private String gps;
     private String activity;
     private String status;
 
     public Attendee() {
-        id = new UUID(12345, 23456);
-        //// TODO: 3/26/2016  initialize the id
+             this(UUID.randomUUID());
+    }
+
+    public Attendee(UUID id) {
+        mId = id;
         setName("some name");
-        setGps(0);
+        setGps("1234");
         setActivity("whatever");
         setStatus("some status");
     }
 
     public UUID getId() {
-        return id;
-    }
-
-    public void setName(String name) {
-        this.name = name;
+        return this.mId;
     }
 
     public String getName() {
         return this.name;
     }
 
-    public void setGps(Integer gps) {
-        this.gps = gps;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public Integer getGps() {
+    public String getGps() {
         return this.gps;
     }
 
-    public void setActivity(String activity) {
-        this.activity = activity;
+    public void setGps(String gps) {
+        this.gps = gps;
     }
 
     public String getActivity() {
         return this.activity;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setActivity(String activity) {
+        this.activity = activity;
     }
 
     public String getStatus() {
         return this.status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }

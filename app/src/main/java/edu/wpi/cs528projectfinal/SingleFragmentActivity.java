@@ -1,4 +1,4 @@
-package edu.wpi.cs528projectfinal.Common;
+package edu.wpi.cs528projectfinal;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -14,19 +14,20 @@ import edu.wpi.cs528projectfinal.R;
 public abstract class SingleFragmentActivity  extends AppCompatActivity {
 
     protected abstract Fragment createFragment();
+    private static String sMSG = "ZONA --> SingleFragmentActivity ";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_a_single_activity);
+        setContentView(R.layout.activity_fragment);
 
         FragmentManager fm = getSupportFragmentManager();
-        Fragment fragment = fm.findFragmentById(R.id.fragment_a_single_activity);
+        Fragment fragment = fm.findFragmentById(R.id.fragment_container);
 
         if (fragment == null) {
             fragment = createFragment();
             fm.beginTransaction()
-                    .add(R.id.fragment_a_single_activity, fragment)
+                    .add(R.id.fragment_container, fragment)
                     .commit();
         }
     }

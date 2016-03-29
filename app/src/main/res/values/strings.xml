@@ -1,19 +1,30 @@
 <resources>
-    <string name="app_name">CS528ProjectFinal</string>
-
+    <string name="app_name">Standup Meeting Manager for Agile</string>
     <string name="hello_world">Hello world!</string>
-     <string name="hello_view_01a_create_standup">View 01a - Create Standup</string>
-    <string name="hello_view_04_checkin">View 04 - Attendee Checkin</string>
-
-
     <string name="action_settings">Settings</string>
 
+
+    <string name="attendee_name">Name</string>
+    <string name="attendee_gps">Gps</string>
+    <string name="attendee_activity">Activity</string>
+    <string name="attendee_status">Status</string>
+    <string name="new_attendee">New Attendee</string>
+    <string name="show_subtitle">Show Subtitle</string>
+    <string name="hide_subtitle">Hide Subtitle</string>
+    <string name="subtitle_format">%1$s crimes</string>
+    <string name="attendee_report_text">Attendee Report</string>
+   <string name="attendee_report">%1$s!
+        The attendee is %6$s abcceddf %6$s blah %6$s and %6$s
+    </string>
+
+
+    <string name="xxxxxxxxxxx">xxxxxxxxxxxxxxxx</string>
     <string name="title_activity_act01a_standup_view">Act01a_StandupView</string>
     <string name="title_activity_act04__checkin_view">Act04_CheckinView</string>
     <string name="title_activity_act04_checkin">Act04Checkin</string>
 
-    <string name="new_attendee">New Attendee</string>
-    <string name="show_subtitle">Show Subtitle</string>
-    <string name="hide_subtitle">Hide Subtitle</string>
+
+    <string name="hello_view_01a_create_standup">View 01a - Create Standup</string>
+    <string name="hello_view_04_checkin">View 04 - Attendee Checkin</string>
 
 </resources>
