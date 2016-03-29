@@ -1,7 +1,9 @@
-package edu.wpi.cs528projectfinal;
+package edu.wpi.cs528projectfinal.xxxJunkChris.activities;
 
 import android.support.v4.app.Fragment;
 import android.util.Log;
+
+import edu.wpi.cs528projectfinal.activitiesCommon.SingleFragmentActivity;
 
 /**
  * Created by Chris on 3/26/2016.

@@ -1,4 +1,4 @@
-package edu.wpi.cs528projectfinal;
+package edu.wpi.cs528projectfinal.xxxJunkChris.activities;
 
 import android.content.Context;
 import android.content.Intent;
@@ -12,6 +12,8 @@ import android.util.Log;
 
 import java.util.List;
 import java.util.UUID;
+
+import edu.wpi.cs528projectfinal.R;
 
 /**
  * Created by Chris on 3/28/2016.

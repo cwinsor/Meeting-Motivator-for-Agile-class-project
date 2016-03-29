@@ -13,17 +13,31 @@
         android:theme="@style/AppTheme">
 
         <activity
-            android:name=".AttendeePagerActivity"
+            android:name=".activities.A00aMainScreenActivity">
             android:label="@string/app_name"
-            android:parentActivityName=".AttendeeListActivity">
-        </activity>
-        <activity android:name=".AttendeeListActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
+
+        <activity
+            android:name=".activities.A01aCreateStandupActivity">
+            android:label="@string/app_name"
+        </activity>
+
+        <activity
+            android:name=".xxxJunkChris.activities.AttendeePagerActivity">
+            android:label="@string/app_name"
+            android:parentActivityName=".xxxJunkChris.activities.AttendeeListActivity">
+        </activity>
+
+        <activity
+            android:name=".xxxJunkChris.activities.AttendeeListActivity">
+            android:label="@string/app_name"
+        </activity>
+
+
     </application>
 
 

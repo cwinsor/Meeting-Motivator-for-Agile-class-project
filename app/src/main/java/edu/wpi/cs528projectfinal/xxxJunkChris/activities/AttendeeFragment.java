@@ -1,4 +1,4 @@
-package edu.wpi.cs528projectfinal;
+package edu.wpi.cs528projectfinal.xxxJunkChris.activities;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -13,6 +13,8 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 
 import java.util.UUID;
+
+import edu.wpi.cs528projectfinal.R;
 
 /**
  * Created by Chris on 3/26/2016.
@@ -36,12 +38,12 @@ public class AttendeeFragment extends Fragment {
     private EditText mAttendeeStatus;
 
 
-    public static AttendeeFragment newInstance(UUID crimeId) {
+    public static AttendeeFragment newInstance(UUID attendeeId) {
 
         Log.v(TAG, "newInstance");
 
         Bundle args = new Bundle();
-        args.putSerializable(ARG_ATTENDEE_ID, crimeId);
+        args.putSerializable(ARG_ATTENDEE_ID, attendeeId);
 
         AttendeeFragment fragment = new AttendeeFragment();
         fragment.setArguments(args);

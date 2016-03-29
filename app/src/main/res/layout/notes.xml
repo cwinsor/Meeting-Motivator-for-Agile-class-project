@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+<!--
+
+want to be able to have
+layout_junk_chris
+layout_junk_jing
+layout_junk_xiaoyan
+
+this requires specifying the new layout files in the build.gradle
+reference:
+http://stackoverflow.com/questions/4930398/can-the-android-layout-folder-contain-subfolders
+
+but it is not working - the .xml file does not 'find'  "RelativeLayout"
+
+the contents of the build.gradle file are below:
+
+  sourceSets {
+        main{
+            res.srcDirs =
+                    [
+                            '/src/main/res/layout_junk_chris',
+                            '/src/main/res/layout_junk_jing',
+                            '/src/main/res/layout_junk_xiaoyan',
+                            '/src/main/res/layout',
+                            '/src/main/res'
+                    ]
+        }
+    }
+-->
+    </RelativeLayout>

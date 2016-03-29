@@ -1,4 +1,4 @@
-package edu.wpi.cs528projectfinal;
+package edu.wpi.cs528projectfinal.activitiesCommon;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;

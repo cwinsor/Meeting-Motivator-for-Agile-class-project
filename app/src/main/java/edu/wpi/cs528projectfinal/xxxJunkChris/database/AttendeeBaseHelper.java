@@ -1,10 +1,8 @@
-package edu.wpi.cs528projectfinal.database;
+package edu.wpi.cs528projectfinal.xxxJunkChris.database;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-
-import edu.wpi.cs528projectfinal.database.AttendeeDbSchema.AttendeeTable;
 
 
 /**
@@ -24,11 +22,11 @@ public class AttendeeBaseHelper extends SQLiteOpenHelper {
 
         db.execSQL("create table " + AttendeeDbSchema.AttendeeTable.NAME + "(" +
                         " _id integer primary key autoincrement, " +
-                        AttendeeTable.Cols.UUID + ", " +
-                        AttendeeTable.Cols.NAME + ", " +
-                        AttendeeTable.Cols.GPS + ", " +
-                        AttendeeTable.Cols.ACTIVITY + ", " +
-                        AttendeeTable.Cols.STATUS +
+                        AttendeeDbSchema.AttendeeTable.Cols.UUID + ", " +
+                        AttendeeDbSchema.AttendeeTable.Cols.NAME + ", " +
+                        AttendeeDbSchema.AttendeeTable.Cols.GPS + ", " +
+                        AttendeeDbSchema.AttendeeTable.Cols.ACTIVITY + ", " +
+                        AttendeeDbSchema.AttendeeTable.Cols.STATUS +
                         ")"
         );
     }

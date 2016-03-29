@@ -1,6 +1,5 @@
-package edu.wpi.cs528projectfinal;
+package edu.wpi.cs528projectfinal.xxxJunkChris.activities;
 
-import java.util.Date;
 import java.util.UUID;
 
 

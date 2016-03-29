@@ -1,6 +1,5 @@
-package edu.wpi.cs528projectfinal;
+package edu.wpi.cs528projectfinal.xxxJunkChris.activities;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -17,6 +16,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import java.util.List;
+
+import edu.wpi.cs528projectfinal.R;
 
 /**
  * Created by Chris on 3/26/2016.

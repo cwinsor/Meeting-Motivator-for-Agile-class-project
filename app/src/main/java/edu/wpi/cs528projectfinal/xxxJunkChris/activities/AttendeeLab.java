@@ -1,4 +1,4 @@
-package edu.wpi.cs528projectfinal;
+package edu.wpi.cs528projectfinal.xxxJunkChris.activities;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -9,9 +9,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-import edu.wpi.cs528projectfinal.database.AttendeeBaseHelper;
-import edu.wpi.cs528projectfinal.database.AttendeeCursorWrapper;
-import edu.wpi.cs528projectfinal.database.AttendeeDbSchema.AttendeeTable;
+import edu.wpi.cs528projectfinal.xxxJunkChris.database.AttendeeBaseHelper;
+import edu.wpi.cs528projectfinal.xxxJunkChris.database.AttendeeCursorWrapper;
+import edu.wpi.cs528projectfinal.xxxJunkChris.database.AttendeeDbSchema.AttendeeTable;
 
 /**
  * Created by Chris on 3/26/2016.
