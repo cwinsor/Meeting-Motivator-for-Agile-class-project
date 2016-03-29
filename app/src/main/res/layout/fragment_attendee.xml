@@ -5,7 +5,7 @@
     android:layout_height="match_parent">
 
 
-    <TextView
+    <EditText
         android:id="@+id/attendee_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -13,7 +13,7 @@
         android:layout_marginRight="16dp"
         android:text="@string/attendee_name"/>
 
-    <TextView
+    <EditText
         android:id="@+id/attendee_gps"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -21,14 +21,14 @@
         android:layout_marginRight="16dp"
         android:text="@string/attendee_gps"/>
 
-    <TextView
+    <EditText
         android:id="@+id/attendee_activity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:text="@string/attendee_activity"/>
-    <TextView
+    <EditText
         android:id="@+id/attendee_status"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

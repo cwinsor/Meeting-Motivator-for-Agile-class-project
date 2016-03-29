@@ -180,7 +180,7 @@ public class AttendeeListFragment extends Fragment {
         @Override
         public AttendeeHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             LayoutInflater layoutInflater = LayoutInflater.from(getActivity());
-            View view = layoutInflater.inflate(android.R.layout.list_item_attendee, parent, false);
+            View view = layoutInflater.inflate(R.layout.list_item_attendee, parent, false);
             return new AttendeeHolder(view);
         }
 
@@ -193,6 +193,10 @@ public class AttendeeListFragment extends Fragment {
         @Override
         public int getItemCount() {
             return mAttendees.size();
+        }
+
+        public void setAttendees(List<Attendee> attendees) {
+            mAttendees = attendees;
         }
     }
 
