@@ -17,6 +17,7 @@ public class A00aMainScreenActivity extends SingleFragmentActivity {
     public static Intent newIntent(Context packageContext) {
         Intent intent = new Intent(packageContext, A00aMainScreenActivity.class);
         return intent;
+        // this is a comment !
     }
 
     @Override

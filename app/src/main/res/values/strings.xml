@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Standup Meeting Manager for Agile</string>
+    <string name="app_name">Meeting Planner</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
 
