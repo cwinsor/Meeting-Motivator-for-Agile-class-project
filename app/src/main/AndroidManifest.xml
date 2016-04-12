@@ -8,12 +8,23 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher2"
+        android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme">
 
         <activity
             android:name=".activities.A00aMainScreenActivity">
+            android:label="@string/app_name"
+        </activity>
+
+        <activity
+            android:name=".activities.A01aCreateStandupActivity">
+            android:label="@string/app_name"
+        </activity>
+
+
+        <activity
+            android:name=".activities.A02cSigninActivity">
             android:label="@string/app_name"
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,10 +32,12 @@
             </intent-filter>
         </activity>
 
+       <!--
         <activity
-            android:name=".activities.A01aCreateStandupActivity">
+            android:name=".activities.A02cSigninAsyncTask">
             android:label="@string/app_name"
         </activity>
+-->
 
         <activity
             android:name=".xxxJunkChris.activities.AttendeePagerActivity">
