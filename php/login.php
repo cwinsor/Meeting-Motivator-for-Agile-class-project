@@ -26,6 +26,7 @@ else {
 	$response["loginSuccess"] = 1;
 	$response["message"] = "Welcome!";
 }
-echo ($response["message"]);
+
+mysqli_free_result($sqlResult);
 mysqli_close($connection);
 ?>
