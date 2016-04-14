@@ -1,9 +1,6 @@
 <?php
-$dbhost = "dhcp-212-228.cs.dartmouth.edu";
-$dbuser = "root";
-$dbpass = "147147147";
-$dbname = "CS528MeetingManager";
-$connection = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
+require_once('./db_config.php');
+$connection = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_DATABASE);
 
 if(mysqli_connect_errno()){
 	die("Database connecction failed: " 
@@ -17,8 +14,8 @@ if(mysqli_connect_errno()){
 $response = array();
 $username = $_POST['username'];
 $password = $_POST['password'];
-$sql = "SELECT * FROM user WHERE username = '$username'";
 
+$sql = "SELECT * FROM user WHERE username = '$username'";
 $sqlResult = mysqli_query($connection, $sql);
 $row = mysqli_fetch_assoc($sqlResult);
 if($row["password"] != $password) {
@@ -29,6 +26,6 @@ else {
 	$response["loginSuccess"] = 1;
 	$response["message"] = "Welcome!";
 }
-
+echo ($response["message"]);
 mysqli_close($connection);
 ?>
