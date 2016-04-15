@@ -12,21 +12,21 @@ if(mysqli_connect_errno()){
 }
 
 $response = array();
-$meetingname = $_POST['meetingname'];
+$meetingName = $_POST['meetingName'];
 $location = $_POST['location'];
 $latitude = $_POST('latitude');
 $longitude = $_POST('longitude');
 $time = $_POST('time');
 $organizer = $_POST('organizer');
 
-// $meetingname = 'Sprint Kickoff test2';
+// $meetingName = 'Sprint Kickoff test2';
 // $location = 'FL 210';
 // $latitude = 47.23;
 // $longitude = -56.66;
 // $meetingTime = '2016-04-14 23:00';
 // $organizerId = 1;
 
-$sql =  "INSERT INTO meeting(mid, meetingname, location, latitude, longitude, meetingTime, organizerId, meetingStatus, timeNeedsChange) VALUES (null, '$meetingname', '$location', $latitude, $longitude, '$meetingTime', $organizerId, 0, 0)";
+$sql =  "INSERT INTO meeting(mid, meetingName, location, latitude, longitude, meetingTime, organizerId, meetingStatus, timeNeedsChange) VALUES (null, '$meetingName', '$location', $latitude, $longitude, '$meetingTime', $organizerId, 0, 0)";
 $sqlResult = mysqli_query($connection, $sql);
 
 if($sqlResult) {
