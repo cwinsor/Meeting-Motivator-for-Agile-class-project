@@ -23,7 +23,7 @@ import edu.wpi.cs528projectfinal.R;
 public class A05_NewProductActivity extends Activity {
 
     // Progress Dialog
-    private ProgressDialog pDialog;
+    private /* zona */ static ProgressDialog pDialog;
 
     JSONParser jsonParser = new JSONParser();
     EditText inputName;
