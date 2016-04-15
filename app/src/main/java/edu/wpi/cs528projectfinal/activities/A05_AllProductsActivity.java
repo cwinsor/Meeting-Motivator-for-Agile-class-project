@@ -39,7 +39,7 @@ public class A05_AllProductsActivity extends ListActivity {
     ArrayList<HashMap<String, String>> productsList;
 
     // url to get all products list
-    private static String url_all_products = "http://www.cwinsorconsulting.com/cs528/get_all_products.php";
+    private static String url_all_products = "http://www.cwinsorconsulting.com/cs528/products_get_all.php";
 
 
     // JSON Node names

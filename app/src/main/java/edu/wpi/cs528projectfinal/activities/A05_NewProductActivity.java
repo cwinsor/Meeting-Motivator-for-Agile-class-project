@@ -23,7 +23,7 @@ import edu.wpi.cs528projectfinal.R;
 public class A05_NewProductActivity extends Activity {
 
     // Progress Dialog
-    private /* zona */ static ProgressDialog pDialog;
+    private static ProgressDialog pDialog;
 
     JSONParser jsonParser = new JSONParser();
     EditText inputName;
@@ -31,7 +31,7 @@ public class A05_NewProductActivity extends Activity {
     EditText inputDesc;
 
     // url to create new product
-    private static String url_create_product = "http://www.cwinsorconsulting.com/cs528/create_product.php";
+    private static String url_create_product = "http://www.cwinsorconsulting.com/cs528/product_create.php";
 
     // JSON Node names
     private static final String TAG_SUCCESS = "success";

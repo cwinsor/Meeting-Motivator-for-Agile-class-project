@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal">
+
+    <!--  Button to log in -->
+    <Button android:id="@+id/btnHomeLogin"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Login"
+        android:layout_marginTop="25dip"/>
+
+    <!--  Button to sign up -->
+    <Button android:id="@+id/btnHomeSignup"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Sign Up"
+        android:layout_marginTop="25dip"/>
+
+    <Button android:id="@+id/btnGoToProductExample"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="(go to the views from the 'product' example...)"
+        android:layout_marginTop="25dip" />
+
+
+
+</LinearLayout>

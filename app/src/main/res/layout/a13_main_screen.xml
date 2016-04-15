@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+
+    <!-- Button to List Current Meetings -->
+    <Button android:id="@+id/goto_meeting_list"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Show Current Meetings"/>
+
+    <!-- Button to Create A Meeting -->
+    <Button android:id="@+id/goto_create_meeting"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Create A New Meeting"/>
+
+
+</LinearLayout>
