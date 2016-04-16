@@ -40,14 +40,14 @@ public class A05_EditProductActivity extends Activity {
     JSONParser jsonParser = new JSONParser();
 
     // single product url
-    private static String url_product_detials = "http://www.cwinsorconsulting.com/cs528/get_product_details.php";
+    private static String url_product_detials = "http://www.cwinsorconsulting.com/cs528/product_get_details.php";
 
 
     // url to update product
-    private static final String url_update_product = "http://www.cwinsorconsulting.com/cs528/update_product.php";
+    private static final String url_update_product = "http://www.cwinsorconsulting.com/cs528/product_update.php";
 
     // url to delete product
-    private static final String url_delete_product = "http://www.cwinsorconsulting.com/cs528/delete_product.php";
+    private static final String url_delete_product = "http://www.cwinsorconsulting.com/cs528/product_delete.php";
 
 
 
@@ -148,10 +148,9 @@ public class A05_EditProductActivity extends Activity {
                 success = json.getInt(TAG_SUCCESS);
                 if (success == 1) {
                     // successfully received product details
-                    JSONArray productObj = json
-                            .getJSONArray(TAG_PRODUCT); // JSON Array
+                    JSONArray productObj = json.getJSONArray(TAG_PRODUCT); // JSON Array
 
-                    // get first product object from JSON Array
+                    // get first object from JSON Array
                     product = productObj.getJSONObject(0);
 
                 } else {
