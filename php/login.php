@@ -19,11 +19,11 @@ $sql = "SELECT * FROM user WHERE username = '$username'";
 $sqlResult = mysqli_query($connection, $sql);
 $row = mysqli_fetch_assoc($sqlResult);
 if($row["password"] != $password) {
-	$response["loginSuccess"] = 0;
+	$response["success"] = 0;
 	$response["message"] = "Access Denied. Invalid user name or password.";
 }
 else {
-	$response["loginSuccess"] = 1;
+	$response["success"] = 1;
 	$response["message"] = "Welcome!";
 }
 

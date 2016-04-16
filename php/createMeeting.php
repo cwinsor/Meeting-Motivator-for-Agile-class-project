@@ -26,10 +26,17 @@ $organizer = $_POST('organizer');
 // $meetingTime = '2016-04-14 23:00';
 // $organizerId = 1;
 
-$sql =  "INSERT INTO meeting(mid, meetingName, location, latitude, longitude, meetingTime, organizerId, meetingStatus, timeNeedsChange) VALUES (null, '$meetingName', '$location', $latitude, $longitude, '$meetingTime', $organizerId, 0, 0)";
-$sqlResult = mysqli_query($connection, $sql);
+// step 1. insert into meeting table
+$sql1 =  "INSERT INTO meeting(mid, meetingName, location, latitude, longitude, meetingTime, organizerId, meetingStatus, timeNeedsChange) VALUES (null, '$meetingName', '$location', $latitude, $longitude, '$meetingTime', $organizerId, 0, 0)";
+$sqlResult1 = mysqli_query($connection, $sql1);
 
-if($sqlResult) {
+// step 2. insert into meeting_user table
+$mid = mysqli_insert_id($connection);
+//echo "meeting id: ".($mid);
+$sql2 = "INSERT INTO meeting_user(mid, uid, userRole, userLatitude, userLongitude, activity, arrivalTime, arrivalStatus, okWithTimeChange, anotherTime) VALUES ($mid, $organizerId , 'Organizer', null, null, null, null, null, null, null)";
+$sqlResult2 = mysqli_query($connection, $sql2);
+
+if($sqlResult1 && $sqlResult2) {
 	$response["success"] = 1;
 	$response["message"] = "A meeting is successfully created!";
 } else {
@@ -37,6 +44,6 @@ if($sqlResult) {
 	$response["message"] = "An Exception Occured!";
 }
 
-//echo ($response["message"]);
+//echo json_encode($response);
 mysqli_close($connection);
 ?>
