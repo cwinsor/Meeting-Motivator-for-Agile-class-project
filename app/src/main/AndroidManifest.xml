@@ -87,6 +87,18 @@
             android:label="Meeting Manager" >
         </activity>
 
+        <activity
+            android:name=".activities.A20_MeetingLocationActivity"
+            android:label="Meeting Manager" >
+        </activity>
+        <activity
+            android:name=".activities.A21_MyLocationActivity"
+            android:label="Meeting Manager" >
+        </activity>
+        <activity
+            android:name=".activities.A22_EstimateArrivalActivity"
+            android:label="Meeting Manager" >
+        </activity>
 
 
         <activity

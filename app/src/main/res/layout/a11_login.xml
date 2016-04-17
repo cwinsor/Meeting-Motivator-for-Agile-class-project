@@ -39,22 +39,23 @@
         android:singleLine="true"
         android:inputType="numberDecimal"/>
 
-    <!-- Label -->
-    <TextView
-        android:id="@+id/id_text_view"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="(...)"
-        android:paddingLeft="10dip"
-        android:paddingRight="10dip"
-        android:paddingTop="10dip"
-        android:textSize="17dip"/>
 
     <!-- Button -->
     <Button android:id="@+id/btnLogin"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="Log In"
+        android:paddingLeft="10dip"
+        android:paddingRight="10dip"
+        android:paddingTop="10dip"
+        android:textSize="17dip"/>
+
+
+    <!-- Response message -->
+    <TextView  android:id="@+id/message"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text=""
         android:paddingLeft="10dip"
         android:paddingRight="10dip"
         android:paddingTop="10dip"

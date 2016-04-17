@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
@@ -28,16 +29,18 @@ public class A12_SignupActivity extends Activity {
     JSONParser jsonParser = new JSONParser();
     EditText username;
     EditText password;
+    TextView message;
 
     // url to create new account
     private static String url_users_add_new = "http://www.cwinsorconsulting.com/cs528/users_add_new_user.php";
 
     // JSON Node names
-    private static final String TAG_SUCCESS = "success";
-    private static final String TAG_USER = "user";
-    private static final String TAG_ID = "id";
+    private static final String TAG_TABLE = "user";
+    private static final String TAG_ID = "uid";
     private static final String TAG_USERNAME = "username";
     private static final String TAG_PASSWORD = "password";
+    private static final String TAG_SUCCESS = "success";
+    private static final String TAG_MESSAGE = "message";
 
 
 
@@ -49,6 +52,7 @@ public class A12_SignupActivity extends Activity {
         // Edit Text
         username = (EditText) findViewById(R.id.username);
         password = (EditText) findViewById(R.id.password);
+        message = (TextView) findViewById(R.id.message);
 
         // Create button
         Button btnCreateAccount = (Button) findViewById(R.id.signup);
@@ -70,6 +74,7 @@ public class A12_SignupActivity extends Activity {
     class CreateNewAccount extends AsyncTask<String, String, String> {
         String myUsername;
         String myPassword;
+        JSONObject json;
 
         /**
          * Before starting background thread Show Progress Dialog
@@ -84,7 +89,7 @@ public class A12_SignupActivity extends Activity {
             pDialog.show();
 
             myUsername = username.getText().toString();
-             myPassword = password.getText().toString();
+            myPassword = password.getText().toString();
         }
 
         /**
@@ -99,7 +104,7 @@ public class A12_SignupActivity extends Activity {
 
             // make JSON Object
             // Note that create product url accepts POST method
-            JSONObject json = jsonParser.makeHttpRequest(url_users_add_new,
+            json = jsonParser.makeHttpRequest(url_users_add_new,
                     "POST", params);
 
             // log response
@@ -132,6 +137,16 @@ public class A12_SignupActivity extends Activity {
         protected void onPostExecute(String file_url) {
             // dismiss the dialog once done
             pDialog.dismiss();
+
+            try {
+                // display product data in EditText - this method is called in UI thread
+                message.setText(json.getString(TAG_MESSAGE));
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+
         }
 
     }
