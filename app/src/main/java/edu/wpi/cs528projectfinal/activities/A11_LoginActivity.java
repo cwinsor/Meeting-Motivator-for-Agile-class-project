@@ -27,8 +27,8 @@ public class A11_LoginActivity extends Activity {
 
     EditText editTextUsername;
     EditText editTextPassword;
-    TextView textViewId;
     Button btnLogin;
+    TextView message;
 
     private static final String INTENT_EXTRA_UID = "uid";
     Integer uid;
@@ -45,9 +45,10 @@ public class A11_LoginActivity extends Activity {
     // JSON Node names
     private static final String TAG_SUCCESS = "success";
     private static final String TAG_USER = "user";
-    private static final String TAG_ID = "id";
+    private static final String TAG_ID = "uid";
     private static final String TAG_USERNAME = "username";
     private static final String TAG_PASSWORD = "password";
+    private static final String TAG_MESSAGE = "message";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -56,8 +57,8 @@ public class A11_LoginActivity extends Activity {
 
         editTextUsername = (EditText) findViewById(R.id.username);
         editTextPassword = (EditText) findViewById(R.id.password);
-        textViewId = (TextView) findViewById(R.id.id_text_view);
         btnLogin = (Button) findViewById(R.id.btnLogin);
+        message = (TextView) findViewById(R.id.message);
 
         // getting product details from intent
         Intent i = getIntent();
@@ -83,7 +84,7 @@ public class A11_LoginActivity extends Activity {
     class GetUserDetails extends AsyncTask<String, String, String> {
 
         String myUsername;
-
+        JSONObject json;
         JSONObject userInformation;
 
         /**
@@ -97,6 +98,8 @@ public class A11_LoginActivity extends Activity {
             pDialog.setIndeterminate(false);
             pDialog.setCancelable(true);
             pDialog.show();
+
+            myUsername = editTextUsername.getText().toString();
         }
 
         /**
@@ -107,12 +110,11 @@ public class A11_LoginActivity extends Activity {
 
             // Building Parameters
             List<NameValuePair> params = new ArrayList<NameValuePair>();
-            myUsername = editTextUsername.getText().toString();
             params.add(new BasicNameValuePair("username", myUsername));
 
             // getting product details by making HTTP request
             // Note that product details url will use GET request
-            JSONObject json = jsonParser.makeHttpRequest(
+             json = jsonParser.makeHttpRequest(
                     url_get_user_details, "GET", params);
 
             // log response
@@ -156,12 +158,14 @@ public class A11_LoginActivity extends Activity {
          * After completing background task Dismiss the progress dialog
          **/
         protected void onPostExecute(String file_url) {
-            //   try {
-            // display data
-            //      textViewId.setText(userInformation.getString(TAG_ID));
-            //} catch (JSONException e) {
-            //       e.printStackTrace();
-            //   }
+
+            try {
+                // display product data in EditText - this method is called in UI thread
+                message.setText(json.getString(TAG_MESSAGE));
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
 
             // dismiss the dialog once got all details
             pDialog.dismiss();

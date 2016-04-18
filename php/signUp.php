@@ -1,9 +1,16 @@
 <?php
 require_once('./db_config.php');
+//$connection = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_DATABASE);
+//$connection = mysql_connect(DB_HOST, DB_USER, DB_PASSWORD) or die(mysql_error());
+//$connection = mysql_connect(DB_HOST, "foo", DB_PASSWORD) or die(mysql_error());
+//$connection = mysql_connect("localhost", "user1", "user1password") or die(mysql_error());
+//$db = mysql_select_db("CS528MeetingManager") or die(mysql_error()) or die(mysql_error());
+//$connection = mysqli_connect("localhost", "chriswinsor", "chriswinsorpassword", "cs528");
+//$connection = mysqli_connect("localhost", "chriswinsor", "chriswinsorpassword", "CS528MeetingManager");
 $connection = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_DATABASE);
 
 if(mysqli_connect_errno()){
-	die("Database connecction failed: " 
+	die("Database connection failed: "
 		. mysqli_connect_error() 
 		. " (the error number is: " 
 			. mysqli_connect_errno() 

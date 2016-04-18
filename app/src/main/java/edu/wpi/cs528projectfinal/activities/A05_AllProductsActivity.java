@@ -132,12 +132,12 @@ public class A05_AllProductsActivity extends ListActivity {
             // getting JSON string from URL
             JSONObject json = jParser.makeHttpRequest(url_all_products, "GET", params);
 
-            // Check your log cat for JSON reponse
-            Log.d("All Products: ", json.toString());
-
             try {
                 // Checking for SUCCESS TAG
                 int success = json.getInt(TAG_SUCCESS);
+
+                // Check your log cat for JSON reponse
+                Log.d("All Products: ", json.toString());
 
                 if (success == 1) {
                     // products found
