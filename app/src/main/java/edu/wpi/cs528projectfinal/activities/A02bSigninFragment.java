@@ -1,29 +1,17 @@
  package edu.wpi.cs528projectfinal.activities;
 
     import android.os.AsyncTask;
-    import android.os.Bundle;
-    import android.support.v4.app.Fragment;
-    import android.util.Log;
-    import android.view.LayoutInflater;
-    import android.view.View;
-    import android.view.ViewGroup;
-    import android.widget.TextView;
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
 
-    import org.apache.http.HttpResponse;
-    import org.apache.http.client.HttpClient;
-    import org.apache.http.client.methods.HttpGet;
-    import org.apache.http.impl.client.DefaultHttpClient;
+import java.lang.ref.WeakReference;
 
-    import java.io.BufferedReader;
-    import java.io.InputStreamReader;
-    import java.io.OutputStreamWriter;
-    import java.lang.ref.WeakReference;
-    import java.net.URI;
-    import java.net.URL;
-    import java.net.URLConnection;
-    import java.net.URLEncoder;
-
-    import edu.wpi.cs528projectfinal.R;
+import edu.wpi.cs528projectfinal.R;
 
     /**
      * Created by Chris on 3/26/2016.
