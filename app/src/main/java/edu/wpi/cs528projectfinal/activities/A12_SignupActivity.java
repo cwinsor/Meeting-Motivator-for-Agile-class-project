@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -23,25 +24,15 @@ import edu.wpi.cs528projectfinal.R;
 
 public class A12_SignupActivity extends Activity {
 
-    // Progress Dialog
-    private ProgressDialog pDialog;
-
-    JSONParser jsonParser = new JSONParser();
     EditText username;
     EditText password;
     TextView message;
 
+    // INTENT extras
+    private static final String INTENT_UID = "uid";
+
     // url to create new account
     private static String url_users_add_new = "http://www.cwinsorconsulting.com/cs528/users_add_new_user.php";
-
-    // JSON Node names
-    private static final String TAG_TABLE = "user";
-    private static final String TAG_ID = "uid";
-    private static final String TAG_USERNAME = "username";
-    private static final String TAG_PASSWORD = "password";
-    private static final String TAG_SUCCESS = "success";
-    private static final String TAG_MESSAGE = "message";
-
 
 
     @Override
@@ -74,6 +65,18 @@ public class A12_SignupActivity extends Activity {
     class CreateNewAccount extends AsyncTask<String, String, String> {
         String myUsername;
         String myPassword;
+
+        // Progress Dialog
+        private ProgressDialog pDialog;
+
+        // JSON Node names
+        private static final String TAG_TABLE = "user";
+        private static final String TAG_ID = "uid";
+        private static final String TAG_USERNAME = "username";
+        private static final String TAG_PASSWORD = "password";
+        private static final String TAG_SUCCESS = "success";
+        private static final String TAG_MESSAGE = "message";
+
         JSONObject json;
 
         /**
@@ -104,6 +107,7 @@ public class A12_SignupActivity extends Activity {
 
             // make JSON Object
             // Note that create product url accepts POST method
+            JSONParser jsonParser = new JSONParser();
             json = jsonParser.makeHttpRequest(url_users_add_new,
                     "POST", params);
 
@@ -115,8 +119,18 @@ public class A12_SignupActivity extends Activity {
                 int success = json.getInt(TAG_SUCCESS);
 
                 if (success == 1) {
-                    // successfully created
+
+                    // successfully received
+                    JSONArray productObj = json.getJSONArray(TAG_TABLE); // JSON Array
+
+                    JSONObject userInformation = productObj.getJSONObject(0);
+
+                    // get password from JSON Array
+                    String uid = (String) userInformation.get(TAG_ID);
+
+                    // go to next screen
                     Intent i = new Intent(getApplicationContext(), A13_MainScreen.class);
+                    i.putExtra(INTENT_UID, uid);
                     startActivity(i);
 
                     // closing this screen
@@ -137,16 +151,6 @@ public class A12_SignupActivity extends Activity {
         protected void onPostExecute(String file_url) {
             // dismiss the dialog once done
             pDialog.dismiss();
-
-            try {
-                // display product data in EditText - this method is called in UI thread
-                message.setText(json.getString(TAG_MESSAGE));
-
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-
-
         }
 
     }

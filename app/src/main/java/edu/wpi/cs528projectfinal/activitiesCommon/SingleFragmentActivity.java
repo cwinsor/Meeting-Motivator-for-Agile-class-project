@@ -10,6 +10,8 @@ import edu.wpi.cs528projectfinal.R;
 
 /**
  * Created by Chris on 3/26/2016.
+ * Reference (passing and receiving extras via Intent to/from Fragment...
+ * http://stackoverflow.com/questions/19747447/android-passing-and-retrieving-extra-from-activity-to-fragment
  */
 public abstract class SingleFragmentActivity  extends AppCompatActivity {
 

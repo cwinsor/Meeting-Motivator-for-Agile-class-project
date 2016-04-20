@@ -50,6 +50,10 @@ public class A11_LoginActivity extends Activity {
     private static final String TAG_PASSWORD = "password";
     private static final String TAG_MESSAGE = "message";
 
+    // INTENT names
+    private static final String INTENT_UID = "uid";
+
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -85,7 +89,7 @@ public class A11_LoginActivity extends Activity {
 
         String myUsername;
         JSONObject json;
-        JSONObject userInformation;
+
 
         /**
          * Before starting background thread Show Progress Dialog
@@ -128,7 +132,7 @@ public class A11_LoginActivity extends Activity {
                     // successfully received
                     JSONArray productObj = json.getJSONArray(TAG_USER); // JSON Array
 
-                    userInformation = productObj.getJSONObject(0);
+                    JSONObject userInformation = productObj.getJSONObject(0);
 
                     // get password from JSON Array
                     String uid = (String) userInformation.get(TAG_ID);
@@ -139,6 +143,7 @@ public class A11_LoginActivity extends Activity {
 
                     // successfully logged in
                     Intent i = new Intent(getApplicationContext(), A13_MainScreen.class);
+                    i.putExtra(INTENT_UID, uid);
                     startActivity(i);
 
                     // closing this screen

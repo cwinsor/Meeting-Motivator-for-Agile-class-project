@@ -99,6 +99,10 @@
             android:name=".activities.A22_EstimateArrivalActivity"
             android:label="Meeting Manager" >
         </activity>
+        <activity
+            android:name=".activities.A14b_NewMeetingActivity"
+            android:label="Meeting Manager" >
+        </activity>
 
 
         <activity
