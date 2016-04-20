@@ -42,4 +42,8 @@
     <string name="hello_view_01a_create_standup">View 01a - Create Standup</string>
     <string name="hello_view_04_checkin">View 04 - Attendee Checkin</string>
 
+    <string name="title_activity_maps">Map</string>
+    <string name="imageView">imageView</string>
+    <string name="my_location">My Location</string>
+    <string name="meeting_location">Add Meeting Location</string>
 </resources>
