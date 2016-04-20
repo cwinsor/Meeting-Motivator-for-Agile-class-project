@@ -45,6 +45,7 @@ public class A14b_NewMeetingFragment extends Fragment {
 
     private static final String KEY_UID="uid";
 
+
     protected static A14b_NewMeetingFragment newInstance(String uid) {
         A14b_NewMeetingFragment f=new A14b_NewMeetingFragment();
 
@@ -63,7 +64,6 @@ public class A14b_NewMeetingFragment extends Fragment {
 
     // url to create new account
     private static String url_meeting_add_new = "http://www.cwinsorconsulting.com/cs528/meeting_add_new_meeting.php";
-
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -128,8 +128,6 @@ public class A14b_NewMeetingFragment extends Fragment {
     private void updateUI() {
         // nothing to do
     }
-
-
 
 
 
@@ -231,7 +229,6 @@ public class A14b_NewMeetingFragment extends Fragment {
 
                 if (success == 1) {
                     // successfully created
-
                     Fragment fragment = new A15_AddAttendeesFragment();
                     FragmentManager fragmentManager = getFragmentManager();
                     fragmentManager.beginTransaction()

@@ -15,7 +15,7 @@ public class A15_AddAttendeesActivity extends SingleFragmentActivity {
 
     // create an Intent that can be used to start this activity
     public static Intent newIntent(Context packageContext) {
-        Intent intent = new Intent(packageContext, A15_AddAttendeesFragment.class);
+        Intent intent = new Intent(packageContext, A15_AddAttendeesActivity.class);
         return intent;
     }
 
