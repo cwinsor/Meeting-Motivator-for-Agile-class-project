@@ -11,16 +11,16 @@ import edu.wpi.cs528projectfinal.activitiesCommon.SingleFragmentActivity;
  * Reference
  * http://www.tutorialspoint.com/android/android_php_mysql.htm
  */
-public class A15_AddAttendeesActivity extends SingleFragmentActivity {
+public class A15b_AddAttendeesActivity extends SingleFragmentActivity {
 
     // create an Intent that can be used to start this activity
     public static Intent newIntent(Context packageContext) {
-        Intent intent = new Intent(packageContext, A15_AddAttendeesActivity.class);
+        Intent intent = new Intent(packageContext, A15b_AddAttendeesActivity.class);
         return intent;
     }
 
     @Override
     protected Fragment createFragment() {
-        return new A15_AddAttendeesFragment();
+        return new A15b_AddAttendeesFragment();
     }
 }

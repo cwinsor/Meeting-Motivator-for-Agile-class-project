@@ -64,38 +64,37 @@
 
 
         <activity
-            android:name=".activities.A10_HomeActivity"
+            android:name=".activities.A10b_HomeActivity"
             android:label="Meeting Planner" >
-            <!--
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-            -->
         </activity>
 
         <activity
-            android:name=".activities.A11_LoginActivity"
+            android:name=".activities.A11b_LoginActivity"
             android:label="Login" >
         </activity>
 
         <activity
-            android:name=".activities.A12_SignupActivity"
+            android:name=".activities.A12b_SignupActivity"
             android:label="New User" >
-        </activity>
-
-        <activity
-            android:name=".activities.A13_MainScreen"
-            android:label="Meeting Manager" >
         </activity>
 
         <activity
             android:name=".activities.A13b_MainScreenActivity"
             android:label="Meeting Manager" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".activities.A14b_NewMeetingActivity"
+            android:label="Meeting Manager" >
+        </activity>
+
+        <activity
+            android:name=".activities.A15b_AddAttendeesActivity"
+            android:label="Meeting Manager" >
         </activity>
 
         <activity

@@ -1,7 +1,6 @@
 package edu.wpi.cs528projectfinal.activities;
 
 import android.app.ProgressDialog;
-import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -229,7 +228,7 @@ public class A14b_NewMeetingFragment extends Fragment {
 
                 if (success == 1) {
                     // successfully created
-                    Fragment fragment = new A15_AddAttendeesFragment();
+                    Fragment fragment = new A15b_AddAttendeesFragment();
                     FragmentManager fragmentManager = getFragmentManager();
                     fragmentManager.beginTransaction()
                             .replace(R.id.fragment_container, fragment)

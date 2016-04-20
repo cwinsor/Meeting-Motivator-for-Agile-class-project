@@ -38,8 +38,8 @@ public class A11b_LoginFragment extends Fragment {
     private static final String KEY_UID="uid";
 
 
-    protected static A12b_SignupFragment newInstance() {
-        A12b_SignupFragment f=new A12b_SignupFragment();
+    protected static A11b_LoginFragment newInstance() {
+        A11b_LoginFragment f=new A11b_LoginFragment();
 
         Bundle args=new Bundle();
 
@@ -67,7 +67,7 @@ public class A11b_LoginFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.a12_signup, container, false);
+        View view = inflater.inflate(R.layout.a11_login, container, false);
 
         editTextUsername = (EditText) view.findViewById(R.id.username);
         editTextPassword = (EditText) view.findViewById(R.id.password);
