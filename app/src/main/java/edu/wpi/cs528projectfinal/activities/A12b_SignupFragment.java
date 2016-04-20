@@ -15,13 +15,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import org.apache.http.NameValuePair;
-import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import edu.wpi.cs528projectfinal.R;
@@ -144,9 +143,9 @@ public class A12b_SignupFragment extends Fragment {
         protected String doInBackground(String... args) {
 
             // Building Parameters
-            List<NameValuePair> params = new ArrayList<NameValuePair>();
-            params.add(new BasicNameValuePair(TAG_USERNAME, myUsername));
-            params.add(new BasicNameValuePair(TAG_PASSWORD, myPassword));
+            HashMap<String, String> params = new HashMap<>();
+            params.put(TAG_USERNAME, myUsername);
+            params.put(TAG_PASSWORD, myPassword);
 
             // make JSON Object
             // Note that create product url accepts POST method

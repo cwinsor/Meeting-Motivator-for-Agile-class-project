@@ -16,13 +16,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import org.apache.http.NameValuePair;
-import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import edu.wpi.cs528projectfinal.R;
@@ -146,8 +145,8 @@ public class A11b_LoginFragment extends Fragment {
             int success;
 
             // Building Parameters
-            List<NameValuePair> params = new ArrayList<NameValuePair>();
-            params.add(new BasicNameValuePair("username", myUsername));
+            HashMap<String, String> params = new HashMap<>();
+            params.put("username", myUsername);
 
             // getting product details by making HTTP request
             // Note that product details url will use GET request

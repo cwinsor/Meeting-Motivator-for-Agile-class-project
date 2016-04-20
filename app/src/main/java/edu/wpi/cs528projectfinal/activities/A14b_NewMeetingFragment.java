@@ -13,12 +13,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import org.apache.http.NameValuePair;
-import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import edu.wpi.cs528projectfinal.R;
@@ -205,15 +204,15 @@ public class A14b_NewMeetingFragment extends Fragment {
         protected String doInBackground(String... args) {
 
             // Building Parameters
-            List<NameValuePair> params = new ArrayList<NameValuePair>();
-            params.add(new BasicNameValuePair(TAG_MEETING_NAME, myMeetingName   ));
-            params.add(new BasicNameValuePair(TAG_LOCATION, myMeetingLocation   ));
-            params.add(new BasicNameValuePair(TAG_LATITUDE, myLatitude   ));
-            params.add(new BasicNameValuePair(TAG_LONGITUDE, myLongitude   ));
-            params.add(new BasicNameValuePair(TAG_MEETING_TIME, myMeetingDateTime   ));
-            params.add(new BasicNameValuePair(TAG_ORGANIZER_ID, myOrganizerId   ));
-            params.add(new BasicNameValuePair(TAG_MEETING_STATUS, myMeetingStatus   ));
-            params.add(new BasicNameValuePair(TAG_TIME_NEEDS_CHANGE, myTimeNeedsChange   ));
+            HashMap<String, String> params = new HashMap<>();
+            params.put(TAG_MEETING_NAME, myMeetingName);
+            params.put(TAG_LOCATION, myMeetingLocation);
+            params.put(TAG_LATITUDE, myLatitude);
+            params.put(TAG_LONGITUDE, myLongitude);
+            params.put(TAG_MEETING_TIME, myMeetingDateTime);
+            params.put(TAG_ORGANIZER_ID, myOrganizerId);
+            params.put(TAG_MEETING_STATUS, myMeetingStatus);
+            params.put(TAG_TIME_NEEDS_CHANGE, myTimeNeedsChange   );
 
             // make JSON Object
             JSONParser jsonParser = new JSONParser();
