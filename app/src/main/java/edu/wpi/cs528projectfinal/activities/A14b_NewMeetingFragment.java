@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
@@ -40,20 +41,34 @@ public class A14b_NewMeetingFragment extends Fragment {
     private Button setDateButton;
     private Button addMeetingButton;
 
-    // INTENT extras
-    String uid;
-    private static final String INTENT_UID = "uid";
+    private TextView messageTextView;
+
+    private static final String KEY_UID="uid";
+
+    protected static A14b_NewMeetingFragment newInstance(String uid) {
+        A14b_NewMeetingFragment f=new A14b_NewMeetingFragment();
+
+        Bundle args=new Bundle();
+
+        args.putString(KEY_UID, uid);
+        f.setArguments(args);
+
+        return(f);
+    }
+
+    String getUid() {
+        return(getArguments().getString(KEY_UID));
+    }
+
 
     // url to create new account
     private static String url_meeting_add_new = "http://www.cwinsorconsulting.com/cs528/meeting_add_new_meeting.php";
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(false);
-
-        // get the extras
-        uid = savedInstanceState.getString(INTENT_UID);
     }
 
     @Override
@@ -61,9 +76,9 @@ public class A14b_NewMeetingFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.a14_new_meeting, container, false);
 
-
         nameEditText = (EditText)view.findViewById(R.id.meeting_name);
         locationEditText = (EditText)view.findViewById(R.id.location);
+        messageTextView = (TextView)view.findViewById(R.id.message);
 
         setTimeButton = (Button)view.findViewById(R.id.choose_time);
         setTimeButton.setOnClickListener(new View.OnClickListener() {
@@ -83,12 +98,22 @@ public class A14b_NewMeetingFragment extends Fragment {
             }
         });
 
-
         addMeetingButton = (Button)view.findViewById(R.id.create);
         addMeetingButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 // go to database using background thread
-                new CreateNewMeeting().execute();
+                CreateNewMeeting cnm = new CreateNewMeeting();
+                cnm.setParams(
+                        getUid(), // String organizerUid,
+                        nameEditText.getText().toString(), // String meetingName,
+                        locationEditText.getText().toString(), // String meetingLocation,
+                        "1234", // String latitude,
+                        "5678", // String longitude,
+                        setTimeButton.getText().toString() + setDateButton.getText().toString(), // String meetingDateTime,
+                        "s", // String meetingStatus,
+                        "tnc"); // String timeNeedsChange) {
+
+                cnm.execute();
             }
         });
 
@@ -127,10 +152,9 @@ public class A14b_NewMeetingFragment extends Fragment {
         private static final String TAG_SUCCESS = "success";
         private static final String TAG_MESSAGE = "message";
 
-        String myMid;
+
         String myMeetingName;
         String myMeetingLocation;
-        String myLocation;
         String myLatitude;
         String myLongitude;
         String myMeetingDateTime;
@@ -138,10 +162,32 @@ public class A14b_NewMeetingFragment extends Fragment {
         String myMeetingStatus;
         String myTimeNeedsChange;
 
+        String myMid;
+        String message;
+
         // Progress Dialog
-        //private ProgressDialog pDialog;
+        private ProgressDialog pDialog;
 
         JSONObject json;
+
+        protected void setParams(
+                String organizerUid,
+                String meetingName,
+                String meetingLocation,
+                String latitude,
+                String longitude,
+                String meetingDateTime,
+                String meetingStatus,
+                String timeNeedsChange) {
+            myMeetingName = meetingName;
+            myMeetingLocation = meetingLocation;
+            myLatitude = latitude;
+            myLongitude = longitude;
+            myMeetingDateTime = meetingDateTime;
+            myOrganizerId = organizerUid;
+            myMeetingStatus = meetingStatus;
+            myTimeNeedsChange = timeNeedsChange;
+        }
 
         /**
          * Before starting background thread Show Progress Dialog
@@ -149,21 +195,11 @@ public class A14b_NewMeetingFragment extends Fragment {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            // ZONA TODO
-            //pDialog = new ProgressDialog(A14b_NewMeetingFragment.this);
-            //pDialog.setMessage("Creating..");
-            //pDialog.setIndeterminate(false);
-            //pDialog.setCancelable(true);
-            //pDialog.show();
-
-            myMeetingName = nameEditText.getText().toString();
-            myMeetingLocation = locationEditText.getText().toString();
-            myLatitude = "1234"; // TODO
-            myLongitude = "5678"; // TODO
-            myMeetingDateTime = setTimeButton.getText().toString() + setDateButton.getText().toString();
-            myOrganizerId = uid;
-            myMeetingStatus = "0";
-            myTimeNeedsChange = "0";
+            pDialog = new ProgressDialog(getView().getContext());
+            pDialog.setMessage("Creating..");
+            pDialog.setIndeterminate(false);
+            pDialog.setCancelable(true);
+            pDialog.show();
         }
 
         /**
@@ -215,17 +251,15 @@ public class A14b_NewMeetingFragment extends Fragment {
          * **/
         protected void onPostExecute(String file_url) {
             // dismiss the dialog once done
-            // TODO pDialog.dismiss();
+            pDialog.dismiss();
 
-            // try {
-            // display product data in EditText - this method is called in UI thread
-            //     message.setText(json.getString(TAG_MESSAGE));
+            try {
+                // display response
+                messageTextView.setText(json.getString(TAG_MESSAGE));
 
-            // } catch (JSONException e) {
-            //    e.printStackTrace();
-            // }
-
-
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
         }
 
     }
