@@ -18,22 +18,22 @@ $uid = $_POST['uid'];
 $okWithTimeChange = $_POST['okWithTimeChange'];
 $anotherTime = $_POST['anotherTime'];
 
-// $mid = 1;
-// $uid = 3; 
+// $mid = 14;
+// $uid = 2; 
 // $okWithTimeChange = 0;
-// $anotherTime = '2017-01-01';
+// $anotherTime = '2017-01-01 10:00am';
 
 $sql = "UPDATE meeting_user SET okWithTimeChange = $okWithTimeChange, anotherTime = '$anotherTime' WHERE mid = $mid and uid = $uid";
 $sqlResult = mysqli_query($connection, $sql);
 if($sqlResult) {
 	$response["success"] = 1;
-	$response["message"] = "Successfully responsed to intended time change";	   
+	$response["message"] = "Successfully respond to intended time change";	   
 } 
 else {
 	$response["success"] = 0;
 	$response["message"] = "An exception occured!";
 }  
 
-//echo json_encode($response);
+echo json_encode($response);
 mysqli_close($connection);
 ?>

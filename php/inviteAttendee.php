@@ -17,8 +17,8 @@ $response["message"] = array();
 
 $mid = $_POST['mid'];
 $uids = $_POST['uids']; // expect a json array of uid sent from andriod app
-// $mid = 1;
-// $uids = array(1, 2, 3); 
+// $mid = 14;
+// $uids = array(2, 3); 
 
 for ($i = 0; $i < count($uids); $i++) {
 	$uid = $uids[$i];

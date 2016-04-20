@@ -15,6 +15,7 @@ $response = array();
 $response["success"] = 1;
 $response["message"] = array();
 
+$mid = $_POST['mid'];
 $uids = $_POST['uids']; // expect a json array of uid sent from andriod app
 $userLatitude = $_POST('userLatitude');
 $userLongitude = $_POST('userLongitude');
@@ -22,7 +23,8 @@ $activity = $_POST('activity');
 $arrivalTime = $_POST('arrivalTime');
 $arrivalStatus = $_POST('arrivalStatus');
 
-// $uids = array(1, 2, 3);
+// $mid = 14;
+// $uids = array(2, 3);
 // $userLatitude = 43.22;
 // $userLongitude = -60.11;
 // $activity = 'Driving';
@@ -31,7 +33,7 @@ $arrivalStatus = $_POST('arrivalStatus');
 
 for ($i = 0; $i < count($uids); $i++) {
 	$uid = $uids[$i];
-	$sql = "UPDATE meeting_user SET userLatitude=$userLatitude, userLongitude=$userLongitude, activity='$activity', arrivalTime='$arrivalTime', arrivalStatus=$arrivalStatus WHERE uid=$uid";
+	$sql = "UPDATE meeting_user SET userLatitude=$userLatitude, userLongitude=$userLongitude, activity='$activity', arrivalTime='$arrivalTime', arrivalStatus=$arrivalStatus WHERE mid = $mid AND uid=$uid";
     $sqlResult = mysqli_query($connection, $sql);
     //echo "Try to collect info of ".$uid;
     if(!$sqlResult) {
