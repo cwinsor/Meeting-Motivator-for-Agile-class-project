@@ -1,6 +1,8 @@
 package edu.wpi.cs528projectfinal.activities;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -12,6 +14,12 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
+import com.google.android.gms.common.GooglePlayServicesRepairableException;
+import com.google.android.gms.location.places.Place;
+import com.google.android.gms.location.places.ui.PlacePicker;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -35,6 +43,7 @@ public class A14b_NewMeetingFragment extends Fragment {
 
     private EditText nameEditText;
     private EditText locationEditText;
+    private Button setLocationButton;
     private Button setTimeButton;
     private Button setDateButton;
     private Button addMeetingButton;
@@ -69,6 +78,9 @@ public class A14b_NewMeetingFragment extends Fragment {
         setHasOptionsMenu(false);
     }
 
+    int PLACE_PICKER_REQUEST = 1;
+    int RESULT_OK = 0;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -77,6 +89,42 @@ public class A14b_NewMeetingFragment extends Fragment {
         nameEditText = (EditText)view.findViewById(R.id.meeting_name);
         locationEditText = (EditText)view.findViewById(R.id.location);
         messageTextView = (TextView)view.findViewById(R.id.message);
+
+        // references
+        // http://www.truiton.com/2015/04/using-new-google-places-api-android/
+        // http://stackoverflow.com/questions/29781978/google-placepicker-closes-immediately-after-launch
+        // https://developers.google.com/places/android-api/signup
+        // http://stackoverflow.com/questions/34365369/googleservice-failed-to-initialize
+        Button btn_meeting_location = (Button) view.findViewById(R.id.choose_location);
+        btn_meeting_location.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                try {
+                    PlacePicker.IntentBuilder intentBuilder =
+                            new PlacePicker.IntentBuilder();
+                    //intentBuilder.setLatLngBounds(BOUNDS_MOUNTAIN_VIEW);
+                    Intent intent = intentBuilder.build(getActivity());
+                    startActivityForResult(intent, PLACE_PICKER_REQUEST);
+                    int foo = 1;
+                    int bar = 2;
+                } catch (GooglePlayServicesRepairableException | GooglePlayServicesNotAvailableException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+                if (requestCode == PLACE_PICKER_REQUEST) {
+                    if (/* zona resultCode == RESULT_OK*/ true) {
+                        Place place = PlacePicker.getPlace(getContext(), data);
+                        String toastMsg = String.format("Place: %s", place.getName());
+                        Toast.makeText(getContext(), toastMsg, Toast.LENGTH_LONG).show();
+                    }
+                }
+            }
+        });
+
+
 
         setTimeButton = (Button)view.findViewById(R.id.choose_time);
         setTimeButton.setOnClickListener(new View.OnClickListener() {

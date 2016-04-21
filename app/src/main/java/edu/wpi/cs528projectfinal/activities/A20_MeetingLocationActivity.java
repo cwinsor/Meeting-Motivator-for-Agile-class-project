@@ -14,6 +14,10 @@ import com.google.android.gms.location.places.ui.PlacePicker;
 
 import edu.wpi.cs528projectfinal.R;
 
+/**
+ * reference:
+ * http://code.tutsplus.com/articles/google-play-services-using-the-places-api--cms-23715
+ */
 public class A20_MeetingLocationActivity extends FragmentActivity {
     int PLACE_PICKER_REQUEST = 1;
     PlacePicker.IntentBuilder builder = new PlacePicker.IntentBuilder();
