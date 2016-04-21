@@ -1,13 +1,15 @@
 apply plugin: 'com.android.application'
 
+
 android {
-    compileSdkVersion 21
-    buildToolsVersion "20.0.0"
+    compileSdkVersion 23
+    buildToolsVersion "23.0.2"
+//    buildToolsVersion "23.2.1"
 
     defaultConfig {
         applicationId "edu.wpi.cs528projectfinal"
         minSdkVersion 16
-        targetSdkVersion 21
+        targetSdkVersion 23
         versionCode 1
         versionName "1.0"
     }
@@ -19,8 +21,10 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:support-v4:22.1.0'
-    compile 'com.android.support:recyclerview-v7:22.1.0'
-    compile 'com.android.support:appcompat-v7:22.1.0'
+    compile 'com.android.support:support-v4:24.0.0-alpha2'
+    compile 'com.android.support:recyclerview-v7:24.0.0-alpha2'
+    compile 'com.android.support:appcompat-v7:24.0.0-alpha2'
+    compile 'com.google.android.gms:play-services:8.4.0'
+    // compile 'org.apache.httpcomponents:httpcore:4.3.2'
 }
 
