@@ -19,7 +19,7 @@ public class A20b_MeetingLocationActivity extends SingleFragmentActivity {
         return intent;
     }
 
-    @Override
+  //  @Override
     protected Fragment createFragment() {
         return new A20b_MeetingLocationFragment();
     }

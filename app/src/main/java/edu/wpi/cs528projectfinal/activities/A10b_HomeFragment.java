@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 import edu.wpi.cs528projectfinal.R;
 
@@ -23,6 +24,10 @@ public class A10b_HomeFragment extends Fragment {
 
 
     private static final String KEY_UID = "uid";
+
+    private static final String KEY_MEETING_LOCATION_RESULT = "param_meeting_location";
+    private static final int KEY_LOCATION_CHOOSER_ACTIVITY = 999;
+
 
 
     protected static A10b_HomeFragment newInstance() {
@@ -102,13 +107,13 @@ public class A10b_HomeFragment extends Fragment {
 
 
         btnGoTo20MeetingLocation.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View view) {
                 // Launching All products Activity
-                //  Intent i = new Intent(getApplicationContext(), A20_MeetingLocationActivity.class);
-                //  startActivity(i);
+                Intent i = A20_MeetingLocationActivity.newIntent(getContext());
 
+                // Intent i = A20b_MeetingLocationActivity.newIntent(getContext());
+                startActivityForResult(i, KEY_LOCATION_CHOOSER_ACTIVITY);
             }
         });
 
@@ -141,6 +146,28 @@ public class A10b_HomeFragment extends Fragment {
 
     private void updateUI() {
         // nothing to do
+    }
+
+
+    /* Called when the second activity's finished */
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        switch(requestCode) {
+            case KEY_LOCATION_CHOOSER_ACTIVITY:
+                if (resultCode == Activity.RESULT_OK) {
+                    Bundle res = data.getExtras();
+                    String result = res.getString(KEY_MEETING_LOCATION_RESULT);
+                    Toast.makeText(getContext(), "meeting location is..." + result, Toast.LENGTH_LONG).show();
+                }
+                break;
+        }
+    }
+
+
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        //    Toast.makeText(getContext(), "a10 has been resumed", Toast.LENGTH_LONG).show();
     }
 
 }

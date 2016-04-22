@@ -30,6 +30,7 @@ import java.util.List;
 
 import edu.wpi.cs528projectfinal.R;
 import edu.wpi.cs528projectfinal.activitiesCommon.DatePickerFragment;
+import edu.wpi.cs528projectfinal.activitiesCommon.PlacePickerFragment;
 import edu.wpi.cs528projectfinal.activitiesCommon.TimePickerFragment;
 
 /**
@@ -43,7 +44,7 @@ public class A14b_NewMeetingFragment extends Fragment {
 
     private EditText nameEditText;
     private EditText locationEditText;
-    private Button setLocationButton;
+    private Button btn_meeting_location;
     private Button setTimeButton;
     private Button setDateButton;
     private Button addMeetingButton;
@@ -51,6 +52,10 @@ public class A14b_NewMeetingFragment extends Fragment {
     private TextView messageTextView;
 
     private static final String KEY_UID="uid";
+    private static final String KEY_MID="mid";
+
+    private static final String KEY_MEETING_LOCATION_RESULT = "param_meeting_location";
+    private static final int KEY_LOCATION_CHOOSER_ACTIVITY = 999;
 
 
     protected static A14b_NewMeetingFragment newInstance(String uid) {
@@ -68,6 +73,9 @@ public class A14b_NewMeetingFragment extends Fragment {
         return(getArguments().getString(KEY_UID));
     }
 
+    String getMid() {
+        return(getArguments().getString(KEY_MID));
+    }
 
     // url to create new account
     private static String url_meeting_add_new = "http://www.cwinsorconsulting.com/cs528/meeting_add_new_meeting.php";
@@ -78,8 +86,8 @@ public class A14b_NewMeetingFragment extends Fragment {
         setHasOptionsMenu(false);
     }
 
-    int PLACE_PICKER_REQUEST = 1;
-    int RESULT_OK = 0;
+    int PLACE_PICKER_REQUEST = 12;
+    int RESULT_OK = -1;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -90,39 +98,36 @@ public class A14b_NewMeetingFragment extends Fragment {
         locationEditText = (EditText)view.findViewById(R.id.location);
         messageTextView = (TextView)view.findViewById(R.id.message);
 
-        // references
-        // http://www.truiton.com/2015/04/using-new-google-places-api-android/
-        // http://stackoverflow.com/questions/29781978/google-placepicker-closes-immediately-after-launch
-        // https://developers.google.com/places/android-api/signup
-        // http://stackoverflow.com/questions/34365369/googleservice-failed-to-initialize
-        Button btn_meeting_location = (Button) view.findViewById(R.id.choose_location);
+
+
+        btn_meeting_location = (Button) view.findViewById(R.id.choose_location);
         btn_meeting_location.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
+                // Launching All products Activity
+                Intent i = A20_MeetingLocationActivity.newIntent(getContext());
 
-                try {
-                    PlacePicker.IntentBuilder intentBuilder =
-                            new PlacePicker.IntentBuilder();
-                    //intentBuilder.setLatLngBounds(BOUNDS_MOUNTAIN_VIEW);
-                    Intent intent = intentBuilder.build(getActivity());
-                    startActivityForResult(intent, PLACE_PICKER_REQUEST);
-                    int foo = 1;
-                    int bar = 2;
-                } catch (GooglePlayServicesRepairableException | GooglePlayServicesNotAvailableException e) {
-                    e.printStackTrace();
-                }
-            }
-
-            protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-                if (requestCode == PLACE_PICKER_REQUEST) {
-                    if (/* zona resultCode == RESULT_OK*/ true) {
-                        Place place = PlacePicker.getPlace(getContext(), data);
-                        String toastMsg = String.format("Place: %s", place.getName());
-                        Toast.makeText(getContext(), toastMsg, Toast.LENGTH_LONG).show();
-                    }
-                }
+                // Intent i = A20b_MeetingLocationActivity.newIntent(getContext());
+                startActivityForResult(i, KEY_LOCATION_CHOOSER_ACTIVITY);
             }
         });
+
+
+        /*
+        btn_meeting_location = (Button) view.findViewById(R.id.choose_location);
+        btn_meeting_location.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                PlacePickerFragment newFragment = new PlacePickerFragment();
+                // newFragment.setButton(setTimeButton);
+
+                FragmentManager fragmentManager = getFragmentManager();
+                fragmentManager.beginTransaction()
+                        .replace(R.id.fragment_container, newFragment)
+                        .commit();
+
+            }
+        });
+*/
 
 
 
@@ -152,7 +157,7 @@ public class A14b_NewMeetingFragment extends Fragment {
                 cnm.setParams(
                         getUid(), // String organizerUid,
                         nameEditText.getText().toString(), // String meetingName,
-                        locationEditText.getText().toString(), // String meetingLocation,
+                        btn_meeting_location.getText().toString(), // String meetingLocation,
                         "1234", // String latitude,
                         "5678", // String longitude,
                         setTimeButton.getText().toString() + setDateButton.getText().toString(), // String meetingDateTime,
@@ -160,6 +165,7 @@ public class A14b_NewMeetingFragment extends Fragment {
                         "tnc"); // String timeNeedsChange) {
 
                 cnm.execute();
+
             }
         });
 
@@ -175,6 +181,20 @@ public class A14b_NewMeetingFragment extends Fragment {
         // nothing to do
     }
 
+
+    /* Called when the second activity's finished */
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        switch(requestCode) {
+            case KEY_LOCATION_CHOOSER_ACTIVITY:
+                if (resultCode == Activity.RESULT_OK) {
+                    Bundle res = data.getExtras();
+                    String result = res.getString(KEY_MEETING_LOCATION_RESULT);
+                    Toast.makeText(getContext(), "meeting location is..." + result, Toast.LENGTH_LONG).show();
+                    btn_meeting_location.setText(result);
+                }
+                break;
+        }
+    }
 
 
     /**
@@ -275,11 +295,13 @@ public class A14b_NewMeetingFragment extends Fragment {
 
                 if (success == 1) {
                     // successfully created
-                    Fragment fragment = new A15b_AddAttendeesFragment();
+                    //          Fragment fragment = A15b_AddAttendeesFragment.newInstance(getUid(), getMid());
+                    Fragment fragment = new A12b_SignupFragment();
                     FragmentManager fragmentManager = getFragmentManager();
                     fragmentManager.beginTransaction()
                             .replace(R.id.fragment_container, fragment)
                             .commit();
+                } else {
                 }
 
             } catch (JSONException e) {
@@ -299,10 +321,65 @@ public class A14b_NewMeetingFragment extends Fragment {
             try {
                 // display response
                 messageTextView.setText(json.getString(TAG_MESSAGE));
+                //  messageTextView.setText("hello!");
 
             } catch (JSONException e) {
                 e.printStackTrace();
             }
+
+            // successfully created
+            String myuid = getUid();
+            String mymid = getMid();
+            Fragment fragment = A15b_AddAttendeesFragment.newInstance(getUid(), getMid());
+            FragmentManager fragmentManager = getFragmentManager();
+            fragmentManager.beginTransaction()
+                    .replace(R.id.fragment_container, fragment)
+                    .commit();
+        }
+
+    }
+
+
+
+
+
+
+    /**
+     * Background Async Task to update database
+     * */
+    class RunPlacePicker extends AsyncTask<String, String, String> {
+
+        /**
+         * Before starting background thread Show Progress Dialog
+         * */
+        @Override
+        protected void onPreExecute() {
+
+        }
+
+        /**
+         * Create
+         * */
+        protected String doInBackground(String... args) {
+            try {
+                PlacePicker.IntentBuilder intentBuilder =
+                        new PlacePicker.IntentBuilder();
+                //  intentBuilder.setLatLngBounds(BOUNDS_MOUNTAIN_VIEW);
+                Intent intent = intentBuilder.build(getActivity());
+                startActivityForResult(intent, PLACE_PICKER_REQUEST);
+
+            } catch (GooglePlayServicesRepairableException
+                    | GooglePlayServicesNotAvailableException e) {
+                e.printStackTrace();
+            }
+            return null;
+        }
+
+        /**
+         * After completing background task Dismiss the progress dialog
+         * **/
+        protected void onPostExecute(String file_url) {
+
         }
 
     }

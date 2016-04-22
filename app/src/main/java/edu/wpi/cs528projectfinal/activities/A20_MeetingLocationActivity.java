@@ -1,5 +1,6 @@
 package edu.wpi.cs528projectfinal.activities;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
@@ -21,6 +22,28 @@ import edu.wpi.cs528projectfinal.R;
 public class A20_MeetingLocationActivity extends FragmentActivity {
     int PLACE_PICKER_REQUEST = 1;
     PlacePicker.IntentBuilder builder = new PlacePicker.IntentBuilder();
+
+    private static final String KEY_MEETING_LOCATION_RESULT="param_meeting_location";
+
+    // create an Intent that can be used to start this activity
+    public static Intent newIntent(Context packageContext) {
+        Intent intent = new Intent(packageContext, A20_MeetingLocationActivity.class);
+        return intent;
+    }
+
+// return the location as part of a bundle
+    private void finishWithResult(String locationString)
+    {
+        Bundle conData = new Bundle();
+        conData.putString(KEY_MEETING_LOCATION_RESULT, locationString);
+        Intent intent = new Intent();
+        intent.putExtras(conData);
+        setResult(RESULT_OK, intent);
+        finish();
+    }
+
+    ///////////////////////////////////
+    //////////// original code
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +68,7 @@ public class A20_MeetingLocationActivity extends FragmentActivity {
                 Place place = PlacePicker.getPlace(this, data);
                 String toastMsg = String.format("Place: %s", place.getName());
                 Toast.makeText(this, toastMsg, Toast.LENGTH_LONG).show();
+                finishWithResult(place.getName().toString());
             }
         }
     }

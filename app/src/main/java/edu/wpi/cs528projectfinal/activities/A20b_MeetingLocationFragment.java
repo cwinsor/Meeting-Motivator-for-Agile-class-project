@@ -75,7 +75,7 @@ public class A20b_MeetingLocationFragment extends Fragment {
         View view = inflater.inflate(R.layout.a14_new_meeting, container, false);
 
 
-        Button btn_meeting_location = (Button) view.findViewById(R.id.btn_add_meeting_location);
+        Button btn_meeting_location = (Button) view.findViewById(R.id.choose_location);
         btn_meeting_location.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
