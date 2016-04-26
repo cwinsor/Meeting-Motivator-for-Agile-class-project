@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="edu.wpi.cs528projectfinal">
+    package="edu.wpi.cs528projectfinal" >
 
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"
-        android:maxSdkVersion="18"
-        />
-    <!--  Internet Permissions -->
+    <uses-permission
+        android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="18" />
+    <!-- Internet Permissions -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -24,44 +24,37 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme" >
 
+         <activity
+         android:name=".activities.A10b_HomeActivity"
+         android:label="A16_Meeting Planner" >
+             <intent-filter>
+                 <action android:name="android.intent.action.MAIN" />
 
-
-        <activity
-            android:name=".activities.A10b_HomeActivity"
-            android:label="Meeting Planner" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-
-        <activity
-            android:name=".activities.A11b_LoginActivity"
-            android:label="Login" >
-        </activity>
-
-        <activity
-            android:name=".activities.A12b_SignupActivity"
-            android:label="New User" >
-        </activity>
-
-        <activity
-            android:name=".activities.A13b_MainScreenActivity"
-            android:label="Meeting Manager" >
-        </activity>
-
-        <activity
-            android:name=".activities.A14b_NewMeetingActivity"
-            android:label="Meeting Manager" >
-        </activity>
-
-        <activity
-            android:name=".activities.A15b_AddAttendeesActivity"
-            android:label="Meeting Manager" >
-        </activity>
-
+                 <category android:name="android.intent.category.LAUNCHER" />
+             </intent-filter>
+         </activity>
+         <activity
+         android:name=".activities.A11b_LoginActivity"
+         android:label="Login" >
+         </activity>
+         <activity
+         android:name=".activities.A12b_SignupActivity"
+         android:label="New User" >
+         </activity>
+         <activity
+         android:name=".activities.A13b_MainScreenActivity"
+         android:label="A16_Meeting Manager" >
+         </activity>
+         <activity
+         android:name=".activities.A14b_NewMeetingActivity"
+         android:label="A16_Meeting Manager" >
+         </activity>
+         <activity
+         android:name=".activities.A15b_AddAttendeesActivity"
+         android:label="A16_Meeting Manager" >
+         </activity>
         <activity
             android:name=".activities.A20_MeetingLocationActivity"
             android:label="Meeting Location" >
@@ -80,31 +73,25 @@
             android:name=".activities.A22_EstimateArrivalActivity"
             android:label="Estimate Arrival" >
         </activity>
-
-        <activity
-            android:name=".xxxJunkChris.activities.AttendeePagerActivity">
+        <activity android:name=".xxxJunkChris.activities.AttendeePagerActivity" >
             android:label="@string/app_name"
             android:parentActivityName=".xxxJunkChris.activities.AttendeeListActivity">
         </activity>
-
-        <activity
-            android:name=".xxxJunkChris.activities.AttendeeListActivity">
+        <activity android:name=".xxxJunkChris.activities.AttendeeListActivity" >
             android:label="@string/app_name"
         </activity>
-
-
 
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
-
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyDE_UWHkC4X3agQgaGEhCFQoYd37VjHnGk"/>
+            android:value="AIzaSyDE_UWHkC4X3agQgaGEhCFQoYd37VjHnGk" />
 
-
+        <activity
+            android:name=".activities.A16_MeetingListActivity"
+            android:label="@string/title_activity_a16__meeting_list" >
+        </activity>
     </application>
-
-
 
 </manifest>
