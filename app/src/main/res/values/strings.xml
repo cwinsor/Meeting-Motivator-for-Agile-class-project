@@ -33,6 +33,16 @@
     </string>
 
 
+
+    <string-array name="UserNamesZonaHardcoded">
+        <item>Chris</item>
+        <item>Jing</item>
+        <item>Xiaoyan</item>
+    </string-array>
+
+
+
+
     <string name="xxxxxxxxxxx">xxxxxxxxxxxxxxxx</string>
     <string name="title_activity_act01a_standup_view">Act01a_StandupView</string>
     <string name="title_activity_act04__checkin_view">Act04_CheckinView</string>
