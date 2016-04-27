@@ -16,6 +16,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -80,6 +81,14 @@ public class A17_MeetingInformationActivityFragment extends Fragment implements 
             mLocation = new ArrayList<Double>();
             A17_MeetingLocation meetingLocation = new A17_MeetingLocation();
             meetingLocation.execute();
+            Button add_attendee = (Button) view.findViewById(R.id.buttonaddattendee);
+            add_attendee.setOnClickListener(new View.OnClickListener() {
+            @Override
+                public void onClick(View v) {
+                    Intent i = new Intent(getActivity(), A17_AddAttendeeActivity.class);
+                    startActivity(i);
+            }
+        });
             return view;
         }
 
@@ -138,7 +147,7 @@ public class A17_MeetingInformationActivityFragment extends Fragment implements 
     }
 
     private class A17_MeetingUserInformation extends AsyncTask<String, String, String> {
-        String cur_mid;
+        String cur_meetingName;
 
         // Progress Dialog
         private ProgressDialog pDialog;
@@ -146,7 +155,7 @@ public class A17_MeetingInformationActivityFragment extends Fragment implements 
         // JSON Node names
         private static final String TAG_SUCCESS = "success";
         private static final String TAG_TABLE = "meeting_user";
-        private static final String TAG_MID = "mid";
+        private static final String TAG_MEETING_NAME = "meetingName";
         private static final String TAG_USER_ID = "uid";
         private static final String TAG_USER_LONGITUDE = "userLongitude";
         private static final String TAG_USER_LATITUDE = "userLatitude";
@@ -154,7 +163,7 @@ public class A17_MeetingInformationActivityFragment extends Fragment implements 
         private static final String TAG_USER_ARRIVAL = "arrivalTime";
         JSONObject json;
 
-        protected void setParams(String mid) {cur_mid = mid;}
+        protected void setParams(String meetingName) {cur_meetingName = meetingName;}
 
         /**
          * Before starting background thread Show Progress Dialog
@@ -176,13 +185,13 @@ public class A17_MeetingInformationActivityFragment extends Fragment implements 
             Intent meeting_list = getActivity().getIntent();
             Bundle bundle = meeting_list.getExtras();
             if (!bundle.isEmpty()) {
-                if (bundle.containsKey("mid")) {
-                    setParams(bundle.getString("mid"));
+                if (bundle.containsKey("meetingName")) {
+                    setParams(bundle.getString("meetingName"));
                 }
             }
             int success1;
             HashMap<String, String> params = new HashMap<>();
-            params.put(TAG_MID, cur_mid);
+            params.put(TAG_MEETING_NAME, cur_meetingName);
             JSONParser jsonParser = new JSONParser();
             String url_get_meeting_user = "http://www.cwinsorconsulting.com/cs528/getAllAttendees.php";
             json = jsonParser.makeHttpRequest(
@@ -284,7 +293,7 @@ public class A17_MeetingInformationActivityFragment extends Fragment implements 
     }
 
     private class A17_MeetingLocation extends AsyncTask<String, String, String> implements OnMapReadyCallback{
-        String cur_mid;
+        String cur_meetingName;
 
         // Progress Dialog
         private ProgressDialog pDialog;
@@ -292,12 +301,12 @@ public class A17_MeetingInformationActivityFragment extends Fragment implements 
         // JSON Node names
         private static final String TAG_SUCCESS = "success";
         private static final String TAG_TABLE2 = "meeting";
-        private static final String TAG_MID = "mid";
+        private static final String TAG_MEETING_NAME = "meetingName";
         private static final String TAG_MEETING_LATITUDE = "latitude";
         private static final String TAG_MEETING_LONGITUDE = "longitude";
         JSONObject json2;
 
-        protected void setParams(String mid) {cur_mid = mid;}
+        protected void setParams(String meetingName) {cur_meetingName = meetingName;}
 
         /**
          * Before starting background thread Show Progress Dialog
@@ -320,13 +329,13 @@ public class A17_MeetingInformationActivityFragment extends Fragment implements 
             Intent meeting_list = getActivity().getIntent();
             Bundle bundle = meeting_list.getExtras();
             if (!bundle.isEmpty()) {
-                if (bundle.containsKey("mid")) {
-                    setParams(bundle.getString("mid"));
+                if (bundle.containsKey("meetingName")) {
+                    setParams("'" + bundle.getString("meetingName") + "'");
                 }
             }
             int success2;
             HashMap<String, String> params = new HashMap<>();
-            params.put(TAG_MID, cur_mid);
+            params.put(TAG_MEETING_NAME, cur_meetingName);
             JSONParser jsonParser = new JSONParser();
             String url_get_meeting_location = "http://www.cwinsorconsulting.com/cs528/getMeeting.php";
             json2 = jsonParser.makeHttpRequest(

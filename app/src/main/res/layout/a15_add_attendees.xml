@@ -5,10 +5,16 @@ android:layout_width="match_parent"
 android:layout_height="match_parent"
 android:orientation="vertical" >
 
+    <!--
+<<<<<<< HEAD
 <fragment
     android:id="@+id/fragment1"
     android:name="edu.wpi.cs528projectfinal.activities.A15b_AddAttendeesListFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent" />
+
+=======
+>>>>>>> ce493b23f3cc01a82437ba6da514f88e1a851939
+-->
 
 </LinearLayout>

@@ -78,10 +78,10 @@
         <activity
             android:name=".activities.A30_MorningSurveyActivity"
             android:label="Morning Survey" >
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
 
         <activity android:name=".xxxJunkChris.activities.AttendeePagerActivity" >
@@ -95,16 +95,20 @@
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
-        <!-- <meta-data -->
-        <!-- android:name="com.google.android.geo.API_KEY" -->
-        <!-- android:value="AIzaSyDE_UWHkC4X3agQgaGEhCFQoYd37VjHnGk" /> -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyCS1CHxLnk8KjcggJzxEg5yyZz_AvUjWmc" />
-
+            android:value="AIzaSyDE_UWHkC4X3agQgaGEhCFQoYd37VjHnGk" />
+        <!-- <meta-data
+              android:name="com.google.android.geo.API_KEY"
+              android:value="AIzaSyCS1CHxLnk8KjcggJzxEg5yyZz_AvUjWmc" />
+        -->
         <activity
             android:name=".activities.A17_MeetingInformationActivity"
             android:label="@string/title_activity_a17__meeting_information" >
+        </activity>
+        <activity
+            android:name=".activities.A17_AddAttendeeActivity"
+            android:label="@string/title_activity_a17__add_attendee" >
         </activity>
     </application>
 

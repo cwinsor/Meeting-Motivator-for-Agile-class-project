@@ -98,7 +98,6 @@ public class A14b_NewMeetingFragment extends Fragment {
         View view = inflater.inflate(R.layout.a14_new_meeting, container, false);
 
         nameEditText = (EditText)view.findViewById(R.id.meeting_name);
-        locationEditText = (EditText)view.findViewById(R.id.location);
         messageTextView = (TextView)view.findViewById(R.id.message);
 
 
