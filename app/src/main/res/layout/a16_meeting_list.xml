@@ -4,10 +4,40 @@ android:layout_width="fill_parent"
 android:layout_height="fill_parent"
 android:orientation="horizontal" android:baselineAligned="false">
 
-    <ListView
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/mylist"
-        android:clickable="true" />
+        android:layout_height="match_parent">
+
+        <FrameLayout
+            android:id="@+id/header"
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="144dp"
+            android:background="@drawable/header3"
+            android:orientation="vertical"
+            android:focusable="false"
+            android:clickable="false"
+            android:descendantFocusability="blocksDescendants">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal|bottom"
+                android:layout_marginBottom="10dp"
+                android:text="@string/my_meeting"
+                android:textSize="25sp"
+                android:layout_marginTop="0dp"
+                android:focusable="false"
+                android:clickable="false"/>
+
+        </FrameLayout>
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/mylist"
+            android:clickable="true" />
+    </LinearLayout>
 
 </LinearLayout>

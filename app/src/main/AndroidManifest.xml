@@ -89,6 +89,10 @@
             android:name=".activities.A17_MeetingInformationActivity"
             android:label="@string/title_activity_a17__meeting_information" >
         </activity>
+        <activity
+            android:name=".activities.A17_AddAttendeeActivity"
+            android:label="@string/title_activity_a17__add_attendee" >
+        </activity>
     </application>
 
 </manifest>

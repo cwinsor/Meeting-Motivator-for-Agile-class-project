@@ -62,4 +62,8 @@
     <string name="btnlogin">Login</string>
     <string name="btnsignup">Sign Up</string>
     <string name="title_activity_a17__meeting_information">A17_MeetingInformationActivity</string>
+    <string name="btn_addattendee">New Button</string>
+    <string name="title_activity_a17__add_attendee">A17_AddAttendeeActivity</string>
+    <string name="checkuser">New CheckBox</string>
+    <string name="checkusername">New Text</string>
 </resources>

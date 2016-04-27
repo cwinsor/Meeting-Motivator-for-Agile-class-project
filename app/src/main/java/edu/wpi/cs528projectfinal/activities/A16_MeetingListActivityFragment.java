@@ -53,10 +53,10 @@ public class A16_MeetingListActivityFragment extends Fragment {
         listMeeting.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Log.d("position", Integer.toString(position));
+                Log.d("meetingName", records.get(position).get_mName());
                 Intent i = new Intent(getActivity(), A17_MeetingInformationActivity.class);
                 Bundle bundle = new Bundle();
-                bundle.putString("mid", Integer.toString(position + 1));
+                bundle.putString("meetingName", records.get(position).get_mName());
                 i.putExtras(bundle);
                 startActivity(i);
                 //Toast.makeText(getActivity(), "ok", Toast.LENGTH_LONG).show();
