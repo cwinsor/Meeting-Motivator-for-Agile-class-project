@@ -28,13 +28,13 @@
 
          <activity
          android:name=".activities.A10b_HomeActivity"
-         android:label="A16_Meeting Planner" >
+         android:label="A10b_HomeActivity" >
              <intent-filter>
                  <action android:name="android.intent.action.MAIN" />
-
                  <category android:name="android.intent.category.LAUNCHER" />
              </intent-filter>
          </activity>
+
          <activity
          android:name=".activities.A11b_LoginActivity"
          android:label="Login" >
@@ -45,15 +45,15 @@
          </activity>
          <activity
          android:name=".activities.A13b_MainScreenActivity"
-         android:label="A16_Meeting Manager" >
+         android:label="A13b_MainScreenActivity" >
          </activity>
          <activity
          android:name=".activities.A14b_NewMeetingActivity"
-         android:label="A16_Meeting Manager" >
+         android:label="A14b_NewMeetingActivity" >
          </activity>
          <activity
          android:name=".activities.A15b_AddAttendeesActivity"
-         android:label="A16_Meeting Manager" >
+         android:label="A15b_AddAttendeesActivity" >
          </activity>
         <activity
             android:name=".activities.A20_MeetingLocationActivity"

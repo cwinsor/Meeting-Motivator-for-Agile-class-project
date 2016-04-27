@@ -21,7 +21,7 @@ public class A10b_HomeFragment extends Fragment {
     Button btnGoTo20MeetingLocation;
     Button btnGoTo21MyLocation;
     Button btnGoTo22ArrivalTimeEstimate;
-
+    Button btnGoTo30MorningSurvey;
 
     private static final String KEY_UID = "uid";
 
@@ -64,6 +64,7 @@ public class A10b_HomeFragment extends Fragment {
         btnGoTo20MeetingLocation = (Button) view.findViewById(R.id.btnGoTo20MeetingLocation);
         btnGoTo21MyLocation = (Button) view.findViewById(R.id.btnGoTo21MyLocation);
         btnGoTo22ArrivalTimeEstimate = (Button) view.findViewById(R.id.btnGoTo22ArrivalTimeEstimate);
+        btnGoTo30MorningSurvey = (Button) view.findViewById(R.id.btnGoTo30MorningSurvey);
 
         // login button
         btnLogin.setOnClickListener(new View.OnClickListener() {
@@ -138,6 +139,22 @@ public class A10b_HomeFragment extends Fragment {
 
             }
         });
+
+
+        btnGoTo30MorningSurvey.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                // Launching morning survey
+
+                Fragment fragment = new A30_MorningSurveyFragment();
+                FragmentManager fragmentManager = getFragmentManager();
+                fragmentManager.beginTransaction()
+                        .replace(R.id.fragment_container, fragment)
+                        .commit();
+            }
+        });
+
         updateUI();
 
         return view;

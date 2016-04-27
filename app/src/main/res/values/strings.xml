@@ -3,6 +3,8 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
 
+
+
     <!-- the following are used on A02 SIGNIN pages -->
     <string name="Username">Username</string>
     <string name="Password">Password</string>
