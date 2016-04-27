@@ -2,42 +2,71 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    android:gravity="center"
+    android:id="@+id/loginlayout"
+    android:background="#3b5998">
 
     <!-- Label -->
-    <TextView android:layout_width="fill_parent"
+
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Username"
-        android:paddingLeft="10dip"
-        android:paddingRight="10dip"
-        android:paddingTop="10dip"
-        android:textSize="17dip"/>
+        android:text="@string/welcome"
+        android:id="@+id/welcome"
+        android:textSize="40dp"
+        android:textStyle="bold" />
+
+    <TextView android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/username"
+        android:paddingLeft="0dp"
+        android:paddingRight="0dp"
+        android:paddingTop="0dp"
+        android:textSize="20sp"
+        android:layout_gravity="center"
+        android:id="@+id/usernamelable"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp" />
 
     <!-- Input -->
     <EditText android:id="@+id/username"
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="5dip"
-        android:layout_marginBottom="15dip"
-        android:singleLine="true"/>
+        android:layout_marginBottom="0dp"
+        android:singleLine="false"
+        android:layout_gravity="center_horizontal"
+        android:paddingLeft="0dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp" />
 
     <!-- Label -->
-    <TextView android:layout_width="fill_parent"
+    <TextView android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Password"
-        android:paddingLeft="10dip"
-        android:paddingRight="10dip"
-        android:paddingTop="10dip"
-        android:textSize="17dip"/>
+        android:text="@string/password"
+        android:paddingLeft="0dp"
+        android:paddingRight="0dp"
+        android:paddingTop="0dp"
+        android:textSize="20sp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp" />
 
     <!-- Input -->
     <EditText android:id="@+id/password"
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="5dip"
         android:layout_marginBottom="15dip"
-        android:singleLine="true"
-        android:inputType="numberDecimal"/>
+        android:singleLine="false"
+        android:inputType="numberDecimal"
+        android:layout_gravity="center_vertical"
+        android:password="false"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp" />
 
 
     <!-- Button -->
@@ -45,21 +74,23 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="Log In"
-        android:paddingLeft="10dip"
-        android:paddingRight="10dip"
-        android:paddingTop="10dip"
-        android:textSize="17dip"/>
+        android:textSize="22dp"
+        android:background="@drawable/button"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp" />
 
 
     <!-- Response message -->
     <TextView  android:id="@+id/message"
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text=""
         android:paddingLeft="10dip"
         android:paddingRight="10dip"
         android:paddingTop="10dip"
-        android:textSize="17dip"/>
+        android:textSize="17dip"
+        android:layout_gravity="center_horizontal" />
 
 
 

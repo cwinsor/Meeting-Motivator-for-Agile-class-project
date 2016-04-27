@@ -2,24 +2,39 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="#3b5998">
 
     <!-- Name Label -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/welcome"
+        android:id="@+id/textView10"
+        android:textSize="40dp"
+        android:textStyle="bold" />
+
     <TextView android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="Username"
         android:paddingLeft="10dip"
         android:paddingRight="10dip"
         android:paddingTop="10dip"
-        android:textSize="17dip"/>
+        android:textSize="17dip"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp" />
 
     <!-- Input Name -->
     <EditText android:id="@+id/username"
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="5dip"
-        android:layout_marginBottom="15dip"
-        android:singleLine="true"/>
+        android:layout_marginBottom="0dp"
+        android:singleLine="false"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp" />
 
     <!-- Price Label -->
     <TextView android:layout_width="fill_parent"
@@ -28,23 +43,33 @@
         android:paddingLeft="10dip"
         android:paddingRight="10dip"
         android:paddingTop="10dip"
-        android:textSize="17dip"/>
+        android:textSize="17dip"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp" />
 
     <!-- Input Price -->
     <EditText android:id="@+id/password"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="5dip"
         android:layout_marginBottom="15dip"
         android:singleLine="true"
-        android:inputType="numberDecimal"/>
+        android:inputType="numberDecimal"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp" />
 
 
     <!-- Button Create Product -->
     <Button android:id="@+id/signup"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="Create Account"/>
+        android:text="Create Account"
+        android:background="@drawable/button"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:textSize="22dp" />
 
     <!-- Response message -->
     <TextView  android:id="@+id/message"

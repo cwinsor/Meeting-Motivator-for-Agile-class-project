@@ -1,13 +1,15 @@
 package edu.wpi.cs528projectfinal.activities;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v4.app.ListFragment;
+import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import org.json.JSONArray;
@@ -22,9 +24,12 @@ import edu.wpi.cs528projectfinal.R;
 /**
  * A placeholder fragment containing a simple view.
  */
-public class A16_MeetingListActivityFragment extends ListFragment {
+public class A16_MeetingListActivityFragment extends Fragment {
     private A16_MeetingAdapter mAdapter;
     protected ArrayList<A16_Meeting> records;
+    private A16_MeetingList meetingList;
+    private ListView listMeeting;
+    private View view;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -35,18 +40,28 @@ public class A16_MeetingListActivityFragment extends ListFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_a16__meeting_list, container, false);
-        ListView listMeeting = (ListView) view.findViewById(android.R.id.list);
+        view = inflater.inflate(R.layout.a16_meeting_list, container, false);
+        listMeeting = (ListView) view.findViewById(R.id.mylist);
 
         records = new ArrayList<A16_Meeting>();
-        A16_MeetingList meetingList = new A16_MeetingList();
-//        String s = "c";
-//        meetingList.setParams(s);
+        meetingList = new A16_MeetingList();
         meetingList.execute();
+        Log.d("records", records.toString());
         mAdapter = new A16_MeetingAdapter(getActivity(), R.layout.list_item_meeting, records);
-//        String[] records = new String[]{"1", "2", "3"};
-//        ArrayAdapter<String> mAdapter = new ArrayAdapter<String>(getActivity(), R.layout.list_item_meeting, R.id.meeting_name, records);
+        Log.d("records", records.toString());
         listMeeting.setAdapter(mAdapter);
+        listMeeting.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Log.d("position", Integer.toString(position));
+                Intent i = new Intent(getActivity(), A17_MeetingInformationActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("mid", Integer.toString(position + 1));
+                i.putExtras(bundle);
+                startActivity(i);
+                //Toast.makeText(getActivity(), "ok", Toast.LENGTH_LONG).show();
+            }
+        });
         return view;
     }
 

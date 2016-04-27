@@ -13,12 +13,11 @@
         android:baselineAligned="false">
 
         <fragment
-            android:layout_width="0dp"
-            android:layout_height="fill_parent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:name="com.google.android.gms.maps.MapFragment"
             android:id="@+id/mapView"
-            android:layout_gravity="center_horizontal"
-            android:layout_weight="3" />
+            android:layout_gravity="center_horizontal" />
 
     </LinearLayout>
 

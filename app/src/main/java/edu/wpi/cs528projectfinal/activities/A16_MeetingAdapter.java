@@ -20,6 +20,12 @@ public class A16_MeetingAdapter extends ArrayAdapter<A16_Meeting>{
         ArrayList<A16_Meeting> records;
         Context context;
 
+    static class MeetingHolder {
+        TextView textName;
+        TextView textTime;
+        TextView textLocation;
+    }
+
         public A16_MeetingAdapter(Context context, int vg, ArrayList<A16_Meeting>
                 records) {
 
@@ -32,15 +38,15 @@ public class A16_MeetingAdapter extends ArrayAdapter<A16_Meeting>{
         public View getView(int position, View convertView, ViewGroup parent) {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             View itemView = inflater.inflate(groupid, parent, false);
-            TextView textName = (TextView) itemView.findViewById(R.id.meeting_name);
-            textName.setText(records.get(position).get_mName());
+            MeetingHolder holder = new MeetingHolder();
+            holder.textName = (TextView) itemView.findViewById(R.id.meeting_name);
+            holder.textName.setText(records.get(position).get_mName());
 
-            TextView textTime = (TextView) itemView.findViewById(R.id.meeting_time);
-            textTime.setText(records.get(position).get_mTime());
+            holder.textTime = (TextView) itemView.findViewById(R.id.meeting_time);
+            holder.textTime.setText(records.get(position).get_mTime());
 
-            TextView textLocation = (TextView) itemView.findViewById(R.id.meeting_location);
-            textLocation.setText(records.get(position).get_mLocation());
-
+            holder.textLocation = (TextView) itemView.findViewById(R.id.meeting_location);
+            holder.textLocation.setText(records.get(position).get_mLocation());
             return itemView;
         }
 }

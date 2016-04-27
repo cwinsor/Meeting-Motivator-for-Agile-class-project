@@ -1,6 +1,5 @@
 package edu.wpi.cs528projectfinal.activities;
 
-import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -24,14 +23,13 @@ import com.google.android.gms.location.places.ui.PlacePicker;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 import edu.wpi.cs528projectfinal.R;
 import edu.wpi.cs528projectfinal.activitiesCommon.DatePickerFragment;
-import edu.wpi.cs528projectfinal.activitiesCommon.PlacePickerFragment;
 import edu.wpi.cs528projectfinal.activitiesCommon.TimePickerFragment;
+
+//import edu.wpi.cs528projectfinal.activitiesCommon.PlacePickerFragment;
 
 /**
  * Created by Chris on 3/26/2016.
@@ -48,6 +46,8 @@ public class A14b_NewMeetingFragment extends Fragment {
     private Button setTimeButton;
     private Button setDateButton;
     private Button addMeetingButton;
+    private String latitude;
+    private String longitude;
 
     private TextView messageTextView;
 
@@ -57,6 +57,9 @@ public class A14b_NewMeetingFragment extends Fragment {
     private static final String KEY_MEETING_LOCATION_RESULT = "param_meeting_location";
     private static final int KEY_LOCATION_CHOOSER_ACTIVITY = 999;
 
+
+    int PLACE_PICKER_REQUEST = 1;
+    PlacePicker.IntentBuilder builder = new PlacePicker.IntentBuilder();
 
     protected static A14b_NewMeetingFragment newInstance(String uid) {
         A14b_NewMeetingFragment f=new A14b_NewMeetingFragment();
@@ -86,7 +89,7 @@ public class A14b_NewMeetingFragment extends Fragment {
         setHasOptionsMenu(false);
     }
 
-    int PLACE_PICKER_REQUEST = 12;
+//    int PLACE_PICKER_REQUEST = 12;
     int RESULT_OK = -1;
 
     @Override
@@ -105,10 +108,15 @@ public class A14b_NewMeetingFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 // Launching All products Activity
-                Intent i = A20_MeetingLocationActivity.newIntent(getContext());
-
-                // Intent i = A20b_MeetingLocationActivity.newIntent(getContext());
-                startActivityForResult(i, KEY_LOCATION_CHOOSER_ACTIVITY);
+//                Intent i = A20_MeetingLocationActivity.newIntent(getContext());
+//
+//                // Intent i = A20b_MeetingLocationActivity.newIntent(getContext());
+//                startActivityForResult(i, KEY_LOCATION_CHOOSER_ACTIVITY);
+                try {
+                    startActivityForResult(builder.build(getActivity()), PLACE_PICKER_REQUEST);
+                } catch (GooglePlayServicesRepairableException | GooglePlayServicesNotAvailableException e) {
+                    e.printStackTrace();
+                }
             }
         });
 
@@ -158,12 +166,11 @@ public class A14b_NewMeetingFragment extends Fragment {
                         getUid(), // String organizerUid,
                         nameEditText.getText().toString(), // String meetingName,
                         btn_meeting_location.getText().toString(), // String meetingLocation,
-                        "1234", // String latitude,
-                        "5678", // String longitude,
+                        latitude, // String latitude,
+                        longitude, // String longitude,
                         setTimeButton.getText().toString() + setDateButton.getText().toString(), // String meetingDateTime,
                         "s", // String meetingStatus,
                         "tnc"); // String timeNeedsChange) {
-
                 cnm.execute();
 
             }
@@ -183,17 +190,44 @@ public class A14b_NewMeetingFragment extends Fragment {
 
 
     /* Called when the second activity's finished */
+//    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+//        switch(requestCode) {
+//            case KEY_LOCATION_CHOOSER_ACTIVITY:
+//                if (resultCode == Activity.RESULT_OK) {
+//                    Bundle res = data.getExtras();
+//                    String result = res.getString(KEY_MEETING_LOCATION_RESULT);
+//                    Toast.makeText(getContext(), "meeting location is..." + result, Toast.LENGTH_LONG).show();
+//                    btn_meeting_location.setText(result);
+//                }
+//                break;
+//        }
+//    }
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        switch(requestCode) {
-            case KEY_LOCATION_CHOOSER_ACTIVITY:
-                if (resultCode == Activity.RESULT_OK) {
-                    Bundle res = data.getExtras();
-                    String result = res.getString(KEY_MEETING_LOCATION_RESULT);
-                    Toast.makeText(getContext(), "meeting location is..." + result, Toast.LENGTH_LONG).show();
-                    btn_meeting_location.setText(result);
-                }
-                break;
+        if (requestCode == PLACE_PICKER_REQUEST) {
+            if (resultCode == RESULT_OK) {
+                Place place = PlacePicker.getPlace(getActivity(), data);
+                String toastMsg = String.format("Place: %s", place.getName());
+                latitude = Double.toString(place.getLatLng().latitude);
+                longitude = Double.toString(place.getLatLng().longitude);
+                Toast.makeText(getActivity(), toastMsg, Toast.LENGTH_LONG).show();
+                finishWithResult(place.getName().toString());
+                btn_meeting_location.setText(place.getName().toString());
+            }
         }
+    }
+
+    private void finishWithResult(String locationString)
+    {
+        Bundle conData = new Bundle();
+        conData.putString(KEY_MEETING_LOCATION_RESULT, locationString);
+        Intent intent = new Intent();
+        intent.putExtras(conData);
+        getActivity().setResult(RESULT_OK, intent);
+//        //getActivity().finish();
+//        Bundle res = data.getExtras();
+//        String result = res.getString(KEY_MEETING_LOCATION_RESULT);
+//        Toast.makeText(getContext(), "meeting location is..." + locationString, Toast.LENGTH_LONG).show();
+//        btn_meeting_location.setText(locationString);
     }
 
 
@@ -330,7 +364,7 @@ public class A14b_NewMeetingFragment extends Fragment {
             // successfully created
             String myuid = getUid();
             String mymid = getMid();
-            Fragment fragment = A15b_AddAttendeesFragment.newInstance(getUid(), getMid());
+            Fragment fragment = A13b_MainScreenFragment.newInstance(getUid());
             FragmentManager fragmentManager = getFragmentManager();
             fragmentManager.beginTransaction()
                     .replace(R.id.fragment_container, fragment)
