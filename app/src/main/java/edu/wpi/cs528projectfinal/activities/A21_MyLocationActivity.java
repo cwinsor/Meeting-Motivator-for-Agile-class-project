@@ -27,6 +27,7 @@ public class A21_MyLocationActivity extends FragmentActivity implements OnMapRea
     private GoogleApiClient googleApiClient = null;
     private Location currentLocation;
     private GoogleMap googleMap;
+    private Double[] doubles;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -38,8 +39,8 @@ public class A21_MyLocationActivity extends FragmentActivity implements OnMapRea
                 .addOnConnectionFailedListener(this)
                 .build();
         googleApiClient.connect();
-        MapFragment mapFragment = (MapFragment) getFragmentManager().findFragmentById(R.id.mapView);
-        mapFragment.getMapAsync(this);
+//        MapFragment mapFragment = (MapFragment) getFragmentManager().findFragmentById(R.id.mapView);
+//        mapFragment.getMapAsync(this);
     }
 
     @Override
@@ -117,5 +118,15 @@ public class A21_MyLocationActivity extends FragmentActivity implements OnMapRea
                 }
             }
         }
+    }
+
+    public Double[] getLocation() {
+        googleApiClient.connect();
+        if (currentLocation != null) {
+            doubles = new Double[2];
+            doubles[0] = currentLocation.getLatitude();
+            doubles[1] = currentLocation.getLongitude();
+        }
+        return doubles;
     }
 }

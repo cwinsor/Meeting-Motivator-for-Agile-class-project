@@ -60,11 +60,18 @@ public class A10b_HomeFragment extends Fragment {
         // Buttons
         btnLogin = (Button) view.findViewById(R.id.btnHomeLogin);
         btnSignup = (Button) view.findViewById(R.id.btnHomeSignup);
+<<<<<<< HEAD
         btnGoToProductExample = (Button) view.findViewById(R.id.btnGoToProductExample);
         btnGoTo20MeetingLocation = (Button) view.findViewById(R.id.btnGoTo20MeetingLocation);
         btnGoTo21MyLocation = (Button) view.findViewById(R.id.btnGoTo21MyLocation);
         btnGoTo22ArrivalTimeEstimate = (Button) view.findViewById(R.id.btnGoTo22ArrivalTimeEstimate);
         btnGoTo30MorningSurvey = (Button) view.findViewById(R.id.btnGoTo30MorningSurvey);
+=======
+//        btnGoToProductExample = (Button) view.findViewById(R.id.btnGoToProductExample);
+//        btnGoTo20MeetingLocation = (Button) view.findViewById(R.id.btnGoTo20MeetingLocation);
+//        btnGoTo21MyLocation = (Button) view.findViewById(R.id.btnGoTo21MyLocation);
+//        btnGoTo22ArrivalTimeEstimate = (Button) view.findViewById(R.id.btnGoTo22ArrivalTimeEstimate);
+>>>>>>> 57b4651ee09abee6207bda3d7a722ff5df180873
 
         // login button
         btnLogin.setOnClickListener(new View.OnClickListener() {
@@ -94,6 +101,7 @@ public class A10b_HomeFragment extends Fragment {
             }
         });
 
+<<<<<<< HEAD
         // legacy example "products" from http://www.androidhive.info/2012/05/how-to-connect-android-with-php-mysql/
         btnGoToProductExample.setOnClickListener(new View.OnClickListener() {
 
@@ -155,6 +163,53 @@ public class A10b_HomeFragment extends Fragment {
             }
         });
 
+=======
+//        // legacy example "products" from http://www.androidhive.info/2012/05/how-to-connect-android-with-php-mysql/
+//        btnGoToProductExample.setOnClickListener(new View.OnClickListener() {
+//
+//            @Override
+//            public void onClick(View view) {
+//                // Launching All products Activity
+//                //  Intent i = new Intent(getApplicationContext(), A05_MainScreenActivity.class);
+//                //  startActivity(i);
+//
+//            }
+//        });
+//
+//
+//        btnGoTo20MeetingLocation.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                // Launching All products Activity
+//                Intent i = A20_MeetingLocationActivity.newIntent(getContext());
+//
+//                // Intent i = A20b_MeetingLocationActivity.newIntent(getContext());
+//                startActivityForResult(i, KEY_LOCATION_CHOOSER_ACTIVITY);
+//            }
+//        });
+//
+//        btnGoTo21MyLocation.setOnClickListener(new View.OnClickListener() {
+//
+//            @Override
+//            public void onClick(View view) {
+//                // Launching All products Activity
+//                // Intent i = new Intent(getApplicationContext(), A21_MyLocationActivity.class);
+//                // startActivity(i);
+//
+//            }
+//        });
+//
+//        btnGoTo22ArrivalTimeEstimate.setOnClickListener(new View.OnClickListener() {
+//
+//            @Override
+//            public void onClick(View view) {
+//                // Launching All products Activity
+//                // Intent i = new Intent(getApplicationContext(), A22_EstimateArrivalActivity.class);
+//                // startActivity(i);
+//
+//            }
+//        });
+>>>>>>> 57b4651ee09abee6207bda3d7a722ff5df180873
         updateUI();
 
         return view;

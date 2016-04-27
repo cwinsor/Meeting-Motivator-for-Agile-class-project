@@ -64,4 +64,14 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_meetinglist">meetinglist</string>
     <string name="title_activity_main">MainActivity</string>
+    <string name="meetinglist">My Meetings</string>
+    <string name="newmeeting">New Meeting</string>
+    <string name="my_meeting">My Meeting</string>
+    <string name="username">Username</string>
+    <string name="startlable">startlable</string>
+    <string name="password">Password</string>
+    <string name="welcome">Welcome</string>
+    <string name="btnlogin">Login</string>
+    <string name="btnsignup">Sign Up</string>
+    <string name="title_activity_a17__meeting_information">A17_MeetingInformationActivity</string>
 </resources>

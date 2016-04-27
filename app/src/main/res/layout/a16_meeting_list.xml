@@ -4,11 +4,10 @@ android:layout_width="fill_parent"
 android:layout_height="fill_parent"
 android:orientation="horizontal" android:baselineAligned="false">
 
-<fragment
-    android:name="edu.wpi.cs528projectfinal.activities.A16_MeetingListActivityFragment"
-    android:id="@+id/meeting_list_fragment"
-    android:layout_weight="1"
-    android:layout_width="0px"
-    android:layout_height="match_parent" />
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/mylist"
+        android:clickable="true" />
 
 </LinearLayout>

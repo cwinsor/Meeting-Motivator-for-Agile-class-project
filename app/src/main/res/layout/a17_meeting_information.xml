@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <fragment
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:name="com.google.android.gms.maps.MapFragment"
+                android:id="@+id/mapView2"
+                android:layout_gravity="center_horizontal" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:showDividers="beginning|middle|end"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp"
+            android:paddingRight="10dp"
+            android:baselineAligned="false"
+            android:dividerPadding="@android:dimen/thumbnail_width">
+
+            <TableLayout
+                android:id="@+id/detailsTable"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:showDividers="beginning|middle|end"
+                android:paddingLeft="5dp"
+                android:paddingTop="5dp"
+                android:paddingRight="5dp"
+                android:divider="@android:drawable/divider_horizontal_textfield"
+                android:dividerPadding="10dp"
+                android:baselineAligned="true"
+                android:paddingBottom="5dp"
+                android:measureWithLargestChild="true"
+                android:nestedScrollingEnabled="true"
+                android:textAlignment="center">
+            </TableLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

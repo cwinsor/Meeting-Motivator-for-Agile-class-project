@@ -3,45 +3,56 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical"
-    android:gravity="center_horizontal">
+    android:gravity="center_vertical|center_horizontal"
+    android:background="#3b5998">
 
     <!--  Button to log in -->
     <Button android:id="@+id/btnHomeLogin"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="Login"
-        android:layout_marginTop="25dip"/>
+        android:text="@string/btnlogin"
+        android:textSize="22dp"
+        android:layout_marginTop="0dp"
+        android:background="@drawable/button"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp" />
 
     <!--  Button to sign up -->
     <Button android:id="@+id/btnHomeSignup"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="Sign Up"
-        android:layout_marginTop="25dip"/>
 
-    <Button android:id="@+id/btnGoToProductExample"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="(Go to 'product' example)"
-        android:layout_marginTop="25dip" />
+        android:text="@string/btnsignup"
+        android:layout_marginTop="25dip"
+        android:background="@drawable/button"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:textSize="22dp" />
 
-    <Button android:id="@+id/btnGoTo20MeetingLocation"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Go to 20 - Meeting Location"
-        android:layout_marginTop="25dip" />
+    <!--<Button android:id="@+id/btnGoToProductExample"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="(Go to 'product' example)"-->
+        <!--android:layout_marginTop="25dip" />-->
 
-    <Button android:id="@+id/btnGoTo21MyLocation"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Go To 21 - My Location"
-        android:layout_marginTop="25dip" />
+    <!--<Button android:id="@+id/btnGoTo20MeetingLocation"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="Go to 20 - Meeting Location"-->
+        <!--android:layout_marginTop="25dip" />-->
 
-    <Button android:id="@+id/btnGoTo22ArrivalTimeEstimate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Go To 22 Arrival Time Estimate"
-        android:layout_marginTop="25dip" />
+    <!--<Button android:id="@+id/btnGoTo21MyLocation"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="Go To 21 - My Location"-->
+        <!--android:layout_marginTop="25dip" />-->
+
+    <!--<Button android:id="@+id/btnGoTo22ArrivalTimeEstimate"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="(Go To 22 Arrival Time Estimate"-->
+        <!--android:layout_marginTop="25dip" />-->
+
 
     <Button android:id="@+id/btnGoTo30MorningSurvey"
         android:layout_width="wrap_content"
