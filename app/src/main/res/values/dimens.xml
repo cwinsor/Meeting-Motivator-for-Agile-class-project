@@ -4,6 +4,7 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
 
     <dimen name="text_size">17dip</dimen>
+    <dimen name="morning_survey_question_size">200dip</dimen>
 
 
 </resources>
