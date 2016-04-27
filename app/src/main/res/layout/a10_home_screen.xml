@@ -53,13 +53,15 @@
         <!--android:text="(Go To 22 Arrival Time Estimate"-->
         <!--android:layout_marginTop="25dip" />-->
 
-
+<!--
     <Button android:id="@+id/btnGoTo30MorningSurvey"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="(Go To Morning Survey)"
-        android:layout_marginTop="25dip" />
-
+        android:layout_marginTop="25dip"
+        android:layout_gravity="bottom"
+        />
+-->
 
 
 </LinearLayout>

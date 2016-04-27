@@ -28,11 +28,9 @@
         <activity
             android:name=".activities.A10b_HomeActivity"
             android:label="A16_Meeting Planner" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+
         </activity>
+
         <activity
             android:name=".activities.A11b_LoginActivity"
             android:label="Login" >
@@ -76,6 +74,16 @@
             android:name=".activities.A22_EstimateArrivalActivity"
             android:label="Estimate Arrival" >
         </activity>
+
+        <activity
+            android:name=".activities.A30_MorningSurveyActivity"
+            android:label="Morning Survey" >
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
+
         <activity android:name=".xxxJunkChris.activities.AttendeePagerActivity" >
             android:label="@string/app_name"
             android:parentActivityName=".xxxJunkChris.activities.AttendeeListActivity">

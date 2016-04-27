@@ -2,15 +2,28 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    android:background="@color/background_color"
+    >
 
+    <TextView
+        android:id="@+id/line00"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="Morning Survey"
+        android:layout_marginTop="@dimen/margin_between_questions"
+        android:textSize="21dip"
+        />
 
     <TextView
         android:id="@+id/line0"
+        android:layout_below="@id/line00"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Please answer the following questions..."
-        android:layout_marginTop="25dip"
+        android:layout_centerHorizontal="true"
+        android:text="Please answer the following questions:"
+        android:layout_marginTop="@dimen/margin_between_questions"
         android:textSize="@dimen/text_size"
         />
 
@@ -20,15 +33,20 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Are you feeling enthusiastic about the Project Planning meeting?"
-        android:layout_marginTop="25dip"
-        android:textSize="@dimen/text_size" />
+        android:layout_marginTop="@dimen/margin_between_questions"
+        android:layout_marginLeft="@dimen/margin_between_buttons"
+        android:textSize="@dimen/text_size"
+        />
 
     <Button
         android:id="@+id/button1a"
         android:layout_below="@id/line1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="no" />
+        android:text="no"
+
+        android:layout_margin="@dimen/margin_between_buttons"
+        />
 
     <Button
         android:id="@+id/button1b"
@@ -36,7 +54,11 @@
         android:layout_toRightOf="@+id/button1a"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="yes" />
+        android:text="yes"
+
+        android:layout_margin="@dimen/margin_between_buttons"
+        />
+<!--      android:background="@drawable/button" -->
 
     <!--
     <RadioGroup
@@ -68,7 +90,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Are you feeling enthusiastic about the Manufacturing Status meeting?"
-        android:layout_marginTop="25dip"
+        android:layout_marginTop="@dimen/margin_between_questions"
+        android:layout_marginLeft="@dimen/margin_between_buttons"
         android:textSize="@dimen/text_size" />
 
     <Button
@@ -76,7 +99,10 @@
         android:layout_below="@id/line2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="no" />
+        android:text="no"
+        android:background="@drawable/button"
+        android:layout_margin="@dimen/margin_between_buttons"
+        />
 
     <Button
         android:id="@+id/button2b"
@@ -84,7 +110,10 @@
         android:layout_toRightOf="@+id/button2a"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="yes" />
+        android:text="yes"
+        android:background="@drawable/button"
+        android:layout_margin="@dimen/margin_between_buttons"
+        />
 
     <!--
     <RadioGroup
@@ -116,7 +145,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Are you feeling enthusiastic about your Job?"
-        android:layout_marginTop="25dip"
+        android:layout_marginTop="@dimen/margin_between_questions"
+        android:layout_marginLeft="@dimen/margin_between_buttons"
         android:textSize="@dimen/text_size" />
 
     <Button
@@ -124,7 +154,10 @@
         android:layout_below="@id/line3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="no" />
+        android:text="no"
+        android:background="@drawable/button"
+        android:layout_margin="@dimen/margin_between_buttons"
+        />
 
     <Button
         android:id="@+id/button3b"
@@ -132,7 +165,10 @@
         android:layout_toRightOf="@+id/button3a"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="yes" />
+        android:text="yes"
+        android:background="@drawable/button"
+        android:layout_margin="@dimen/margin_between_buttons"
+        />
 
 
     <!--
@@ -165,7 +201,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Are you happy with your Home/Family life?"
-        android:layout_marginTop="25dip"
+        android:layout_marginTop="@dimen/margin_between_questions"
+        android:layout_marginLeft="@dimen/margin_between_buttons"
         android:textSize="@dimen/text_size" />
 
     <Button
@@ -173,7 +210,10 @@
         android:layout_below="@id/line4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="no" />
+        android:text="no"
+        android:background="@drawable/button"
+        android:layout_margin="@dimen/margin_between_buttons"
+        />
 
     <Button
         android:id="@+id/button4b"
@@ -181,7 +221,10 @@
         android:layout_toRightOf="@+id/button4a"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="yes" />
+        android:text="yes"
+        android:background="@drawable/button"
+        android:layout_margin="@dimen/margin_between_buttons"
+        />
 
 
     <!--
@@ -207,6 +250,20 @@
             />
     </RadioGroup>
 -->
+
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_below="@id/button4a"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/margin_between_questions"
+        android:layout_marginLeft="@dimen/margin_between_buttons"
+        android:text="done"
+        android:background="@drawable/button"
+        />
+
 
 </RelativeLayout>
 

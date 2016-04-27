@@ -23,7 +23,15 @@ import edu.wpi.cs528projectfinal.R;
 
 public class A30_MorningSurveyFragment extends Fragment {
 
- //   private Button submitButton;
+    private Button button1a;
+    private Button button1b;
+    private Button button2a;
+    private Button button2b;
+    private Button button3a;
+    private Button button3b;
+    private Button button4a;
+    private Button button4b;
+    private Button button5;
 
     protected static A30_MorningSurveyFragment newInstance() {
         A30_MorningSurveyFragment f=new A30_MorningSurveyFragment();
@@ -46,21 +54,114 @@ public class A30_MorningSurveyFragment extends Fragment {
         View view = inflater.inflate(R.layout.a30_morning_survey, container, false);
 
 
-        // submit button
-//        submitButton = (Button) view.findViewById(R.id.submit);
-//        submitButton.setOnClickListener(new View.OnClickListener() {
-//
-//            @Override
-//            public void onClick(View view) {
-//
-//                // upon submit - go back to main page
-//                Fragment fragment = new A10b_HomeFragment();
-//                FragmentManager fragmentManager = getFragmentManager();
-//                fragmentManager.beginTransaction()
-//                        .replace(R.id.fragment_container, fragment)
-//                        .commit();
-//            }
-//        });
+        button1a = (Button) view.findViewById(R.id.button1a);
+        button1b = (Button) view.findViewById(R.id.button1b);
+        button2a = (Button) view.findViewById(R.id.button2a);
+        button2b = (Button) view.findViewById(R.id.button2b);
+        button3a = (Button) view.findViewById(R.id.button3a);
+        button3b = (Button) view.findViewById(R.id.button3b);
+        button4a = (Button) view.findViewById(R.id.button4a);
+        button4b = (Button) view.findViewById(R.id.button4b);
+
+        button5 = (Button) view.findViewById(R.id.button5);
+
+        button1a.setBackgroundColor(getResources().getColor(R.color.button_released));
+        button1b.setBackgroundColor(getResources().getColor(R.color.button_released));
+        button2a.setBackgroundColor(getResources().getColor(R.color.button_released));
+        button2b.setBackgroundColor(getResources().getColor(R.color.button_released));
+        button3a.setBackgroundColor(getResources().getColor(R.color.button_released));
+        button3b.setBackgroundColor(getResources().getColor(R.color.button_released));
+        button4a.setBackgroundColor(getResources().getColor(R.color.button_released));
+        button4b.setBackgroundColor(getResources().getColor(R.color.button_released));
+
+        button1a.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                button1a.setBackgroundColor(getResources().getColor(R.color.button_depressed));
+                button1b.setBackgroundColor(getResources().getColor(R.color.button_released));
+            }
+        });
+
+        button1b.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                button1a.setBackgroundColor(getResources().getColor(R.color.button_released));
+                button1b.setBackgroundColor(getResources().getColor(R.color.button_depressed));
+            }
+        });
+
+
+
+        button2a.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                button2a.setBackgroundColor(getResources().getColor(R.color.button_depressed));
+                button2b.setBackgroundColor(getResources().getColor(R.color.button_released));
+            }
+        });
+
+        button2b.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                button2a.setBackgroundColor(getResources().getColor(R.color.button_released));
+                button2b.setBackgroundColor(getResources().getColor(R.color.button_depressed));
+            }
+        });
+
+
+
+        button3a.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                button3a.setBackgroundColor(getResources().getColor(R.color.button_depressed));
+                button3b.setBackgroundColor(getResources().getColor(R.color.button_released));
+            }
+        });
+
+        button3b.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                button3a.setBackgroundColor(getResources().getColor(R.color.button_released));
+                button3b.setBackgroundColor(getResources().getColor(R.color.button_depressed));
+            }
+        });
+
+
+
+
+        button4a.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                button4a.setBackgroundColor(getResources().getColor(R.color.button_depressed));
+                button4b.setBackgroundColor(getResources().getColor(R.color.button_released));
+            }
+        });
+
+        button4b.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                button4a.setBackgroundColor(getResources().getColor(R.color.button_released));
+                button4b.setBackgroundColor(getResources().getColor(R.color.button_depressed));
+            }
+        });
+
+
+        // signup button
+        button5.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+
+                Fragment fragment = new A10b_HomeFragment();
+                FragmentManager fragmentManager = getFragmentManager();
+                fragmentManager.beginTransaction()
+                        .replace(R.id.fragment_container, fragment)
+                        .commit();
+            }
+        });
+
+
+
 
         updateUI();
 
